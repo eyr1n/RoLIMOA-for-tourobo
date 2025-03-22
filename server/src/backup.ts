@@ -1,9 +1,9 @@
 import { createStore } from "redux";
-import { RootState } from "./features";
+import type { RootState } from "./features/index.js";
 import { format } from "date-fns";
 import fs from "fs";
 import path from "path";
-import config from "./config.json";
+import config from "./config.json" with { type: "json" };
 
 type StoreType = ReturnType<typeof createStore>;
 

@@ -1,11 +1,11 @@
 import { combineReducers } from '@reduxjs/toolkit';
-import { scoreStateSlice } from './score';
-import { phaseStateSlice } from './phase';
-import { matchStateSlice } from './match';
-import { resultRecordsStateSlice } from './resultRecord';
-import { connectedDevicesStateSlice } from './connectedDevices';
-import { streamingInterfaceSlice } from './streamingInterface';
-import { operationLogsStateSlice } from './operationLogs';
+import { scoreStateSlice } from './score.js';
+import { phaseStateSlice } from './phase.js';
+import { matchStateSlice } from './match.js';
+import { resultRecordsStateSlice } from './resultRecord.js';
+import { connectedDevicesStateSlice } from './connectedDevices.js';
+import { streamingInterfaceSlice } from './streamingInterface.js';
+import { operationLogsStateSlice } from './operationLogs.js';
 
 export const rootReducer = combineReducers({
   score: scoreStateSlice.reducer,
