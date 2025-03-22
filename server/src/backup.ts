@@ -49,7 +49,7 @@ function storedObjectValidator(state: RootState): boolean {
     const globalTaskKeys = Object.keys(state.score.global.tasks ?? {});
 
     const fieldTaskIds = config.rule.task_objects.map((task) => task.id);
-    const globalTaskIds = config.rule.global_objects.map((task) => task.id);
+    const globalTaskIds = config.rule.global_objects.map((task: any) => task.id);
 
     return isSameList(stateFieldTaskKeys, fieldTaskIds) && isSameList(globalTaskKeys, globalTaskIds);
 }

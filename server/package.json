@@ -1,18 +1,24 @@
 {
-  "name": "server",
+  "name": "@rolimoa/server",
   "type": "module",
+  "exports": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
-    "dev": "tsx watch src/index.ts"
+    "dev": "tsx watch src/app.ts",
+    "build": "tsc",
+    "serve": "cross-env NODE_ENV=production node dist/app.js"
   },
   "dependencies": {
     "@hono/node-server": "^1.14.0",
     "@hono/node-ws": "^1.1.0",
-    "@reduxjs/toolkit": "^1.5.0",
+    "@reduxjs/toolkit": "1.5.0",
     "date-fns": "^4.1.0",
     "hono": "^4.7.5"
   },
   "devDependencies": {
     "@types/node": "^20.11.17",
-    "tsx": "^4.7.1"
+    "cross-env": "^7.0.3",
+    "tsx": "^4.7.1",
+    "typescript": "^5.8.2"
   }
 }

@@ -30,7 +30,7 @@ export const initialState: ScoreState = {
       vgoal: undefined,
     },
   },
-  global: Object.fromEntries(config.rule.global_objects.map(taskObj => [taskObj.id, taskObj.initialValue ?? 0])),
+  global: Object.fromEntries(config.rule.global_objects.map((taskObj: any) => [taskObj.id, taskObj.initialValue ?? 0])),
 };
 
 type GloablUpdateActionPayload = {

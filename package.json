@@ -1,0 +1,16 @@
+{
+  "name": "@rolimoa/workspace",
+  "private": true,
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces",
+    "serve": "npm run serve --workspace=server",
+    "preinstall": "npx only-allow npm"
+  },
+  "devDependencies": {
+    "npm-run-all2": "^7.0.2"
+  }
+}
