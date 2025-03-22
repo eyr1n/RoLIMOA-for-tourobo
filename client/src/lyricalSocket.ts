@@ -1,7 +1,5 @@
 import { AnyAction, Dispatch } from '@reduxjs/toolkit';
-import { hcWithType } from '@rolimoa/server';
-
-const client = hcWithType(`http://${location.hostname}:8000`)
+import ReconnectingWebSocket from 'reconnecting-websocket';
 
 export class LyricalSocket {
   // singleton
@@ -13,11 +11,11 @@ export class LyricalSocket {
     return this._instance;
   }
 
-  public readonly socket: WebSocket;
+  public readonly socket: ReconnectingWebSocket;
   private sessionId = '';
 
   private constructor() {
-    this.socket = client.ws.$ws();
+    this.socket = new ReconnectingWebSocket(`ws://${window.location.hostname}:8000/ws`);
     this.socket.onopen = () => {
       console.log(`is connected: ${this.socket.readyState === WebSocket.OPEN}`);
     };

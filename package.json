@@ -7,7 +7,9 @@
   ],
   "scripts": {
     "build": "npm run build --workspaces",
-    "serve": "npm run serve --workspace=server",
+    "serve": "run-p serve:server serve:client",
+    "serve:server": "npm run serve --workspace=server",
+    "serve:client": "npm run serve --workspace=client",
     "preinstall": "npx only-allow npm"
   },
   "devDependencies": {

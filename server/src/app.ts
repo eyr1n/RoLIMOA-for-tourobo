@@ -3,12 +3,10 @@ import { rootReducer } from "./features/index.js";
 import { connectedDevicesStateSlice } from "./features/connectedDevices.js";
 import crypt from "crypto";
 import { loadFromFile, saveToFile } from "./backup.js";
-
 import { serve } from "@hono/node-server";
 import { Hono } from "hono";
 import { createNodeWebSocket } from "@hono/node-ws";
 import type { WSContext } from "hono/ws";
-import { serveStatic } from "@hono/node-server/serve-static";
 
 const app = new Hono();
 const { injectWebSocket, upgradeWebSocket } = createNodeWebSocket({ app });
@@ -124,10 +122,6 @@ const route = app
     }
     return c.json(result);
   });
-
-if (process.env.NODE_ENV === "production") {
-  app.use("/*", serveStatic({ root: "../client/dist" }));
-}
 
 injectWebSocket(
   serve(
