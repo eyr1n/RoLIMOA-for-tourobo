@@ -22,9 +22,7 @@ import { useAppRootTimer } from '@/functional/useAppRootTimer';
 import { useLoadSetting } from '@/functional/useLoadSetting';
 import { config } from '@/config/load';
 import { LyricalSocket } from './lyricalSocket';
-import { AppMuiThemeProvider } from './AppMuiThemeProvider';
 import { getSetting } from './util/clientStoredSetting';
-import 'dseg/css/dseg.css';
 
 export function App() {
   const [isConnect, setIsConnect] = useRecoilState(connectionState);
@@ -114,30 +112,23 @@ export function App() {
 
   return (
     <>
-      <AppMuiThemeProvider>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/referee" element={<RefereePage />} />
-          <Route
-            path="/score/red"
-            element={<ScoreInputPage fieldSide="red" />}
-          />
-          <Route
-            path="/score/blue"
-            element={<ScoreInputPage fieldSide="blue" />}
-          />
-          <Route path="/admin" element={<AdminPage />} />
-          <Route
-            path="/streaming-overlay-opener"
-            element={<StreamingOverlayOpenerPage />}
-          />
-          <Route path="/streaming-overlay" element={<StreamingOverlayPage />} />
-          <Route path="/screen" element={<ScreenPage />} />
-        </Routes>
-        <LoadingOverlay
-          loading={!config.client.standalone_mode && !isConnect}
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/referee" element={<RefereePage />} />
+        <Route path="/score/red" element={<ScoreInputPage fieldSide="red" />} />
+        <Route
+          path="/score/blue"
+          element={<ScoreInputPage fieldSide="blue" />}
         />
-      </AppMuiThemeProvider>
+        <Route path="/admin" element={<AdminPage />} />
+        <Route
+          path="/streaming-overlay-opener"
+          element={<StreamingOverlayOpenerPage />}
+        />
+        <Route path="/streaming-overlay" element={<StreamingOverlayPage />} />
+        <Route path="/screen" element={<ScreenPage />} />
+      </Routes>
+      <LoadingOverlay loading={!config.client.standalone_mode && !isConnect} />
     </>
   );
 }

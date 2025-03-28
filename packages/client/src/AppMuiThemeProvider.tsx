@@ -6,7 +6,7 @@ import {
   alpha,
 } from '@mui/material/styles';
 import { blue, grey, pink } from '@mui/material/colors';
-import '@fontsource/noto-sans-jp/index.css';
+import { CssBaseline } from '@mui/material';
 
 declare module '@mui/material/Button' {
   interface ButtonPropsColorOverrides {
@@ -88,7 +88,10 @@ type Props = {
 export const AppMuiThemeProvider = ({ children }: Props) => {
   return (
     <StyledEngineProvider injectFirst>
-      <ThemeProvider theme={appTheme}>{children}</ThemeProvider>
+      <ThemeProvider theme={appTheme}>
+        <CssBaseline />
+        {children}
+      </ThemeProvider>
     </StyledEngineProvider>
   );
 };
