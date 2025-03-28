@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import { Paper, Typography, Grid2, Button, TextField } from '@mui/material';
+import { Paper, Typography, Grid, Button, TextField } from '@mui/material';
 import { Autocomplete } from '@mui/material';
 
 interface MatchMasterComponentProps {
@@ -24,8 +24,8 @@ export const MatchMasterComponent: FC<MatchMasterComponentProps> = ({
       <Typography component="h2" variant="h6" color="primary" gutterBottom>
         試合マスタ
       </Typography>
-      <Grid2 container spacing={1}>
-        <Grid2 size={12}>
+      <Grid container spacing={1}>
+        <Grid size={12}>
           <TextField
             label="試合名"
             onChange={onChangeMatchName}
@@ -71,8 +71,8 @@ export const MatchMasterComponent: FC<MatchMasterComponentProps> = ({
           >
             試合開始
           </Button>
-        </Grid2>
-      </Grid2>
+        </Grid>
+      </Grid>
     </Paper>
   );
 };

@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import { Grid2, Paper } from '@mui/material';
+import { Grid, Paper } from '@mui/material';
 import { ScoreBlock } from './ScoreBlock';
 
 interface ScoreBoardProps {
@@ -18,14 +18,14 @@ export const ScoreBoard: FC<ScoreBoardProps> = ({
 
   return (
     <Paper sx={{ padding: '1em' }}>
-      <Grid2 container spacing={3}>
-        <Grid2 size={12}>
+      <Grid container spacing={3}>
+        <Grid size={12}>
           <ScoreBlock fieldSide="blue" focused={blueFocused} />
-        </Grid2>
-        <Grid2 size={12}>
+        </Grid>
+        <Grid size={12}>
           <ScoreBlock fieldSide="red" focused={redFocused} />
-        </Grid2>
-      </Grid2>
+        </Grid>
+      </Grid>
     </Paper>
   );
 };

@@ -1,6 +1,3 @@
-import { atom } from 'recoil';
+import { atom } from 'jotai';
 
-export const unixtimeOffset = atom<number>({
-  key: 'unixtimeOffset',
-  default: 0,
-});
+export const unixtimeOffset = atom(0);

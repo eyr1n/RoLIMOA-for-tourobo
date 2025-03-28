@@ -1,6 +1,3 @@
-import { atom } from 'recoil';
+import { atom } from 'jotai';
 
-export const isDrawerOpen = atom<undefined | boolean>({
-  key: 'isDrawerOpen',
-  default: undefined,
-});
+export const isDrawerOpen = atom<boolean>();

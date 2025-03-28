@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import {
   AppBar as MuiAppBar,
   type AppBarProps as MuiAppBarProps,
@@ -30,7 +30,7 @@ import VideocamIcon from '@mui/icons-material/Videocam';
 import { StandaloneIndicator } from './StandaloneIndicator';
 import { SettingButton } from './SettingModal';
 import { isDrawerOpen } from '@/atoms/isDrawerOpen';
-import { useRecoilState } from 'recoil';
+import { useAtom } from 'jotai';
 
 const drawerWidth = 240;
 
@@ -93,7 +93,7 @@ interface DashboardProps {
 }
 
 export const Dashboard: FC<DashboardProps> = ({ children, title }) => {
-  const [_open, setOpen] = useRecoilState(isDrawerOpen);
+  const [_open, setOpen] = useAtom(isDrawerOpen);
   const handleDrawerOpen = () => {
     setOpen(true);
   };

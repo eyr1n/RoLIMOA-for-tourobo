@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import {
   Box,
-  Grid2,
+  Grid,
   Paper,
   Table,
   TableBody,
@@ -91,13 +91,13 @@ const GameResultsList: React.FC = () => {
 export const HomePage: FC = () => {
   return (
     <Dashboard title="Dashboard">
-      <Grid2 container>
-        <Grid2 size={12}>
+      <Grid container>
+        <Grid size={12}>
           <Paper sx={{ padding: '1em' }}>
             <GameResultsList />
           </Paper>
-        </Grid2>
-      </Grid2>
+        </Grid>
+      </Grid>
     </Dashboard>
   );
 };

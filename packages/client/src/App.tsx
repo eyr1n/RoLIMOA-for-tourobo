@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router';
 import { useDispatch } from 'react-redux';
-import { useRecoilState } from 'recoil';
 import { scoreStateSlice } from '@rolimoa/common/redux';
 import { phaseStateSlice } from '@rolimoa/common/redux';
 import { matchStateSlice } from '@rolimoa/common/redux';
@@ -23,9 +22,10 @@ import { useLoadSetting } from '@/functional/useLoadSetting';
 import { config } from '@/config/load';
 import { LyricalSocket } from './lyricalSocket';
 import { getSetting } from './util/clientStoredSetting';
+import { useAtom } from 'jotai';
 
 export function App() {
-  const [isConnect, setIsConnect] = useRecoilState(connectionState);
+  const [isConnect, setIsConnect] = useAtom(connectionState);
   const location = useLocation();
   const dispatch = useDispatch();
 

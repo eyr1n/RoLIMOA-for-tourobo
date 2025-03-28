@@ -1,6 +1,5 @@
 import { type FC, useCallback, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useRecoilValue } from 'recoil';
 import type { RootState } from '@rolimoa/common/redux';
 import { type TeamType, matchStateSlice } from '@rolimoa/common/redux';
 import { phaseStateSlice } from '@rolimoa/common/redux';
@@ -10,6 +9,7 @@ import { LyricalSocket } from '@/lyricalSocket';
 import * as Phase from '@/util/PhaseStateUtil';
 import { config } from '@/config/load';
 import { MatchMasterComponent } from './MatchMasterComponent';
+import { useAtomValue } from 'jotai';
 
 // 省略名からチームリストの情報を取得、なければスタブを作成
 function getTeamInfo(short: string): TeamType {
@@ -25,7 +25,7 @@ export const MatchMasterContainer: FC = () => {
   const currentPhaseId = useSelector<RootState, string>(
     (state) => state.phase.current.id,
   );
-  const timeOffset = useRecoilValue(unixtimeOffset);
+  const timeOffset = useAtomValue(unixtimeOffset);
   const [matchName, setMatchName] = useState('');
   const [blueTeamName, setBlueTeamName] = useState('');
   const [redTeamName, setRedTeamName] = useState('');

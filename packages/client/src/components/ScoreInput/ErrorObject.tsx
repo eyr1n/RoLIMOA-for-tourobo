@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import { Box, Grid2, Paper, Typography } from '@mui/material';
+import { Box, Grid, Paper, Typography } from '@mui/material';
 
 interface ErrorObjectProps {
   description: string;
@@ -7,7 +7,7 @@ interface ErrorObjectProps {
 
 export const ErrorObject: FC<ErrorObjectProps> = ({ description }) => {
   return (
-    <Grid2 size={{ xs: 12, sm: 6 }}>
+    <Grid size={{ xs: 12, sm: 6 }}>
       <Paper sx={{ p: '1em', userSelect: 'none' }}>
         <Typography component="h2" variant="h6" gutterBottom>
           {description}
@@ -17,6 +17,6 @@ export const ErrorObject: FC<ErrorObjectProps> = ({ description }) => {
           ページを再読み込みするか、config.jsonを見直してください
         </Box>
       </Paper>
-    </Grid2>
+    </Grid>
   );
 };

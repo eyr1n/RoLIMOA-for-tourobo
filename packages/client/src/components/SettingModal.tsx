@@ -1,6 +1,5 @@
 import { type FC, useCallback, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useSetRecoilState } from 'recoil';
 import { useForm, Controller, type SubmitHandler } from 'react-hook-form';
 import {
   Dialog,
@@ -21,6 +20,7 @@ import { unixtimeOffset } from '@/atoms/unixtimeOffset';
 import { getSetting, setSetting } from '@/util/clientStoredSetting';
 import { LyricalSocket } from '@/lyricalSocket';
 import { NowUnixtimeDisplay } from './NowUnixtimeDisplay';
+import { useSetAtom } from 'jotai';
 
 type FormValues = {
   deviceName: string;
@@ -36,7 +36,7 @@ export const SettingModal: FC<SettingModalProps> = ({ open, onClose }) => {
   const savedSetting = getSetting();
   const dispatch = useDispatch();
   const prevDeviceName = useRef<string>(savedSetting.deviceName);
-  const setTimeOffset = useSetRecoilState(unixtimeOffset);
+  const setTimeOffset = useSetAtom(unixtimeOffset);
 
   const { control, handleSubmit } = useForm({
     reValidateMode: 'onChange',

@@ -1,13 +1,12 @@
 import { type FC, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useRecoilValue } from 'recoil';
 import { useResolvedPath } from 'react-router';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import {
   Box,
   Divider,
   FormControlLabel,
-  Grid2,
+  Grid,
   IconButton,
   InputAdornment,
   Paper,
@@ -22,6 +21,7 @@ import type { RootState } from '@rolimoa/common/redux';
 import { streamingInterfaceSlice } from '@rolimoa/common/redux';
 import { unixtimeOffset } from '@/atoms/unixtimeOffset';
 import { LyricalSocket } from '@/lyricalSocket';
+import { useAtomValue } from 'jotai';
 
 function useAbsoluteUrl(to: string) {
   // 現在のURLとpathnameから`to`のURLを生成
@@ -53,7 +53,7 @@ function addQueryToUrl(
 }
 
 export const StreamingOverlayOpenerPage: FC = () => {
-  const timeOffset = useRecoilValue(unixtimeOffset);
+  const timeOffset = useAtomValue(unixtimeOffset);
   const baseUrl = useAbsoluteUrl('/streaming-overlay');
   const [overlayUrl, setOverlayUrl] = useState(baseUrl);
 
@@ -71,8 +71,8 @@ export const StreamingOverlayOpenerPage: FC = () => {
 
   return (
     <Dashboard title="配信オーバーレイ">
-      <Grid2 container spacing={2}>
-        <Grid2 size={12}>
+      <Grid container spacing={2}>
+        <Grid size={12}>
           <Paper sx={{ padding: '1em' }}>
             <Box>
               <TextField
@@ -126,8 +126,8 @@ export const StreamingOverlayOpenerPage: FC = () => {
               <StreamingInterfaceController />
             </Box>
           </Paper>
-        </Grid2>
-      </Grid2>
+        </Grid>
+      </Grid>
     </Dashboard>
   );
 };

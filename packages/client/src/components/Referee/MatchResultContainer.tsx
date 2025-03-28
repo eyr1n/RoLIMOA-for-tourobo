@@ -2,7 +2,7 @@ import { useCallback, useState } from 'react';
 import {
   Box,
   Button,
-  Grid2,
+  Grid,
   IconButton,
   Paper,
   type SxProps,
@@ -183,22 +183,22 @@ export const MatchResultContainer = () => {
       <Typography component="h2" variant="h6" color="primary" gutterBottom>
         現在の試合：{match.name}
       </Typography>
-      <Grid2 container spacing={3}>
-        <Grid2 size={{ xs: 12, lg: 8 }}>
-          <Grid2 container spacing={6}>
+      <Grid container spacing={3}>
+        <Grid size={{ xs: 12, lg: 8 }}>
+          <Grid container spacing={6}>
             {/* スコア */}
-            <Grid2
+            <Grid
               size={12}
               container
               justifyContent="space-between"
               alignItems="center"
               direction={isReverse ? 'row-reverse' : 'row'}
             >
-              <Grid2 size={5}>
+              <Grid size={5}>
                 <ScoreBlock fieldSide="blue" teamNameVariant="subtitle1" />
                 <ScoreDetailTable fieldSide="blue" />
-              </Grid2>
-              <Grid2 size={2} textAlign="center">
+              </Grid>
+              <Grid size={2} textAlign="center">
                 <IconButton
                   aria-label="delete"
                   color="default"
@@ -207,15 +207,15 @@ export const MatchResultContainer = () => {
                 >
                   <CachedIcon />
                 </IconButton>
-              </Grid2>
-              <Grid2 size={5}>
+              </Grid>
+              <Grid size={5}>
                 <ScoreBlock fieldSide="red" teamNameVariant="subtitle1" />
                 <ScoreDetailTable fieldSide="red" />
-              </Grid2>
-            </Grid2>
-          </Grid2>
-        </Grid2>
-        <Grid2 size={{ xs: 12, lg: 4 }}>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid size={{ xs: 12, lg: 4 }}>
           <Box
             sx={{
               width: '100%',
@@ -227,8 +227,8 @@ export const MatchResultContainer = () => {
           >
             <ResultConfirm />
           </Box>
-        </Grid2>
-      </Grid2>
+        </Grid>
+      </Grid>
     </Paper>
   );
 };

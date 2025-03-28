@@ -5,7 +5,7 @@ import type { FieldSideType } from '@rolimoa/common/redux';
 import { Box, Divider, Slide } from '@mui/material';
 import { useDisplayScore } from '@/functional/useDisplayScore';
 import { useDisplayTimer } from '@/functional/useDisplayTimer';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router';
 import { CenterFlex } from '@/ui/CenterFlex';
 import { formatTime } from '@/util/formatTime';
 import { config } from '@/config/load';

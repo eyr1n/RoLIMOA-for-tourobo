@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
-import { useSetRecoilState } from 'recoil';
 import { unixtimeOffset } from '@/atoms/unixtimeOffset';
 import { getSetting, setSetting } from '@/util/clientStoredSetting';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router';
+import { useSetAtom } from 'jotai';
 
 export const useLoadSetting = () => {
   const savedSetting = getSetting();
-  const setTimeOffset = useSetRecoilState(unixtimeOffset);
+  const setTimeOffset = useSetAtom(unixtimeOffset);
 
   const [queryParam, _] = useSearchParams();
 

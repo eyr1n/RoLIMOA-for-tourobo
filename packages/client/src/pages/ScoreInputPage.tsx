@@ -7,7 +7,7 @@ import {
   Fab,
   FormControlLabel,
   FormGroup,
-  Grid2,
+  Grid,
   Paper,
   Tooltip,
   Switch,
@@ -178,12 +178,12 @@ const ScoreDisplay: FC<ScoreDisplayProps> = ({ fieldSide }) => {
   const refValues = Object.entries(refs ?? {});
 
   return (
-    <Grid2 container spacing={3}>
-      <Grid2 size={12}>
+    <Grid container spacing={3}>
+      <Grid size={12}>
         <ScoreBlock fieldSide={fieldSide} />
-      </Grid2>
+      </Grid>
       {refValues.length > 0 && (
-        <Grid2 size={12}>
+        <Grid size={12}>
           <TableContainer>
             <Table size="small">
               <TableBody>
@@ -199,9 +199,9 @@ const ScoreDisplay: FC<ScoreDisplayProps> = ({ fieldSide }) => {
               </TableBody>
             </Table>
           </TableContainer>
-        </Grid2>
+        </Grid>
       )}
-    </Grid2>
+    </Grid>
   );
 };
 
@@ -228,19 +228,19 @@ export const ScoreInputPage: FC<ScoreInputPageProps> = ({ fieldSide }) => {
 
   return (
     <Dashboard title={`${kanji}チーム得点入力`}>
-      <Grid2 container spacing={2}>
-        <Grid2
+      <Grid container spacing={2}>
+        <Grid
           size={{
             xs: 12,
             lg: 8,
           }}
         >
-          <Grid2 container spacing={1}>
+          <Grid container spacing={1}>
             <ScoreInputPanel fieldSide={fieldSide} />
-          </Grid2>
-        </Grid2>
+          </Grid>
+        </Grid>
 
-        <Grid2
+        <Grid
           size={{
             xs: 12,
             lg: 4,
@@ -258,7 +258,7 @@ export const ScoreInputPage: FC<ScoreInputPageProps> = ({ fieldSide }) => {
               <ScoreInputVgoalButton fieldSide={fieldSide} color={color} />
             </Box>
           </Paper>
-        </Grid2>
+        </Grid>
 
         <Backdrop open={!isScoreEnable}>
           <Fab color="default" variant="extended" onClick={onEnableButton}>
@@ -266,7 +266,7 @@ export const ScoreInputPage: FC<ScoreInputPageProps> = ({ fieldSide }) => {
             スコアを有効化
           </Fab>
         </Backdrop>
-      </Grid2>
+      </Grid>
     </Dashboard>
   );
 };

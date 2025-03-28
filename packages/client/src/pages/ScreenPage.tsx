@@ -2,7 +2,7 @@ import { type FC, useState } from 'react';
 import { ScoreBlock, type ScoreBlockProps } from '@/components/ScoreBlock';
 import { TimerDisplay } from '@/components/TimerDisplay';
 import { usePlaySoundEffect } from '@/functional/usePlaySoundEffect';
-import { Box, Grid2, IconButton } from '@mui/material';
+import { Box, Grid, IconButton } from '@mui/material';
 import { CenterFlex } from '@/ui/CenterFlex';
 import CachedIcon from '@mui/icons-material/Cached';
 
@@ -24,9 +24,9 @@ export const ScreenPage: FC = () => {
 
   return (
     <Box sx={{ padding: '2em' }}>
-      <Grid2 container spacing={6}>
+      <Grid container spacing={6}>
         {/* スコア */}
-        <Grid2
+        <Grid
           size={12}
           container
           sx={{
@@ -35,10 +35,10 @@ export const ScreenPage: FC = () => {
             flexDirection: reverse ? 'row-reverse' : 'row',
           }}
         >
-          <Grid2 size={5}>
+          <Grid size={5}>
             <ScoreBlock fieldSide="blue" {...scoreBlockProps} />
-          </Grid2>
-          <Grid2 size={2}>
+          </Grid>
+          <Grid size={2}>
             <CenterFlex
               sx={{
                 opacity: 0.1,
@@ -56,13 +56,13 @@ export const ScreenPage: FC = () => {
                 <CachedIcon />
               </IconButton>
             </CenterFlex>
-          </Grid2>
-          <Grid2 size={5}>
+          </Grid>
+          <Grid size={5}>
             <ScoreBlock fieldSide="red" {...scoreBlockProps} />
-          </Grid2>
-        </Grid2>
+          </Grid>
+        </Grid>
         {/* タイム */}
-        <Grid2 size={12}>
+        <Grid size={12}>
           <TimerDisplay
             descriptionSx={{
               marginTop: '.5em',
@@ -73,8 +73,8 @@ export const ScreenPage: FC = () => {
               fontSize: '1200%',
             }}
           />
-        </Grid2>
-      </Grid2>
+        </Grid>
+      </Grid>
     </Box>
   );
 };

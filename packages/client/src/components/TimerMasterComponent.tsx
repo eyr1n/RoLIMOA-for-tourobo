@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import {
   Paper,
   Typography,
-  Grid2,
+  Grid,
   Button,
   ButtonGroup,
   Box,
@@ -57,19 +57,19 @@ export const TimerMasterComponent: FC<TimerMasterComponentProps> = ({
       <Typography component="h2" variant="h6" color="primary" gutterBottom>
         時刻マスタ
       </Typography>
-      <Grid2 container spacing={1}>
-        <Grid2 container size={{ xs: 8 }} spacing={1}>
-          <Grid2 size={12}>
+      <Grid container spacing={1}>
+        <Grid container size={{ xs: 8 }} spacing={1}>
+          <Grid size={12}>
             <TimerDisplay descriptionVariant="h6" displayTimeVariant="h2" />
-          </Grid2>
-          <Grid2
+          </Grid>
+          <Grid
             size={12}
             sx={{
               display: 'flex',
               justifyContent: 'center',
             }}
           />
-          <Grid2
+          <Grid
             size={12}
             sx={{
               display: 'flex',
@@ -114,9 +114,9 @@ export const TimerMasterComponent: FC<TimerMasterComponentProps> = ({
                 +10
               </Button>
             </ButtonGroup>
-          </Grid2>
-        </Grid2>
-        <Grid2 size={{ xs: 4 }}>
+          </Grid>
+        </Grid>
+        <Grid size={{ xs: 4 }}>
           <Box mb={3}>
             <Typography variant="body2" color="textSecondary">
               id: {currentPhaseState.id} ({phaseConfig.type})
@@ -204,8 +204,8 @@ export const TimerMasterComponent: FC<TimerMasterComponentProps> = ({
           >
             次のフェーズへ <SkipNextIcon />
           </Button>
-        </Grid2>
-      </Grid2>
+        </Grid>
+      </Grid>
     </Paper>
   );
 };

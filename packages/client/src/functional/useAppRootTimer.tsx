@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useRecoilValue } from 'recoil';
 import type { RootState } from '@rolimoa/common/redux';
 import {
   calculateElapsedSecond,
@@ -8,6 +7,7 @@ import {
   phaseStateSlice,
 } from '@rolimoa/common/redux';
 import { unixtimeOffset } from '@/atoms/unixtimeOffset';
+import { useAtomValue } from 'jotai';
 
 export const useAppRootTimer = () => {
   const dispatch = useDispatch();
@@ -16,7 +16,7 @@ export const useAppRootTimer = () => {
     (state) => state.phase.current,
   );
   const phaseStateRef = useRef<CurrentPhaseState | undefined>(undefined); // タイマーの二重起動防止
-  const offsetTime = useRecoilValue(unixtimeOffset);
+  const offsetTime = useAtomValue(unixtimeOffset);
 
   console.log(
     `AppRootTimer: ${phaseState.id} started at ${phaseState.startTime}`,

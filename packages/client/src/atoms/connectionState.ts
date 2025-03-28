@@ -1,6 +1,3 @@
-import { atom } from 'recoil';
+import { atom } from 'jotai';
 
-export const connectionState = atom<boolean>({
-  key: 'connectionState',
-  default: false,
-});
+export const connectionState = atom(false);

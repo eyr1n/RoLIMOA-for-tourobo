@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import { Typography, type SxProps, Grid2 } from '@mui/material';
+import { Typography, type SxProps, Grid } from '@mui/material';
 import type { Theme } from '@mui/material/styles';
 import { useDisplayTimer } from '@/functional/useDisplayTimer';
 
@@ -32,8 +32,8 @@ export const TimerDisplay: FC<TimerDisplayProps> = ({
   const { description, displayTime } = useDisplayTimer();
 
   return (
-    <Grid2 container justifyContent="center" spacing={1}>
-      <Grid2 size={12}>
+    <Grid container justifyContent="center" spacing={1}>
+      <Grid size={12}>
         <Typography
           component="p"
           variant={descriptionVariant}
@@ -47,8 +47,8 @@ export const TimerDisplay: FC<TimerDisplayProps> = ({
         >
           {description}
         </Typography>
-      </Grid2>
-      <Grid2 size={12}>
+      </Grid>
+      <Grid size={12}>
         <Typography
           component="p"
           variant={displayTimeVariant}
@@ -61,7 +61,7 @@ export const TimerDisplay: FC<TimerDisplayProps> = ({
         >
           {displayTime}
         </Typography>
-      </Grid2>
-    </Grid2>
+      </Grid>
+    </Grid>
   );
 };
