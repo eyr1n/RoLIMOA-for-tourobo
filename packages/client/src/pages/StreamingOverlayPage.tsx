@@ -139,8 +139,8 @@ const TimerDisplay: FC<{ ref?: Ref<null> }> = ({ ref }) => {
         </Box>
         <Box
           sx={{
-            fontFamily: 'DSEG14-Classic',
-            fontWeight: 500,
+            fontFamily: 'DSEG14 Classic',
+            fontWeight: 400,
             height: '120px',
             lineHeight: '120px',
             fontSize: '72px',

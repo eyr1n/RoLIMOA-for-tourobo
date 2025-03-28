@@ -54,8 +54,8 @@ export const TimerDisplay: FC<TimerDisplayProps> = ({
           variant={displayTimeVariant}
           sx={{
             textAlign: 'center',
-            fontFamily: 'DSEG14-Classic',
-            fontWeight: 500,
+            fontFamily: 'DSEG14 Classic',
+            fontWeight: 400,
             ...displayTimeSx,
           }}
         >

@@ -14,7 +14,7 @@ import '@fontsource/noto-sans-jp/300.css';
 import '@fontsource/noto-sans-jp/400.css';
 import '@fontsource/noto-sans-jp/500.css';
 import '@fontsource/noto-sans-jp/700.css';
-import 'dseg/css/dseg.css';
+import '@fontsource/dseg14-classic/400.css';
 
 const store = configureRoLIMOAStore();
 
