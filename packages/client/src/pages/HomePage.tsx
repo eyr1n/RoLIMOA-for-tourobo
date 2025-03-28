@@ -1,4 +1,3 @@
-import type { FC } from 'react';
 import {
   Box,
   Grid,
@@ -13,11 +12,10 @@ import {
 import { blue, red } from '@mui/material/colors';
 import { Dashboard } from '@/components/Dashboard';
 import { useSelector } from 'react-redux';
-import type { RootState } from '@rolimoa/common/redux';
-import type { ResultRecordsType } from '@rolimoa/common/redux';
+import type { ResultRecordsType, RootState } from '@rolimoa/common/redux';
 import { styled } from '@mui/material/styles';
 
-const GameResultsList: React.FC = () => {
+export function GameResultsList() {
   const results = useSelector<RootState, ResultRecordsType>(
     (state) => state.resultRecords,
   );
@@ -86,9 +84,9 @@ const GameResultsList: React.FC = () => {
       </TableContainer>
     </Box>
   );
-};
+}
 
-export const HomePage: FC = () => {
+export function HomePage() {
   return (
     <Dashboard title="Dashboard">
       <Grid container>
@@ -100,4 +98,4 @@ export const HomePage: FC = () => {
       </Grid>
     </Dashboard>
   );
-};
+}

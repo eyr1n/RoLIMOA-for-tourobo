@@ -1,13 +1,15 @@
 import { useEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router';
 import { useDispatch } from 'react-redux';
-import { scoreStateSlice } from '@rolimoa/common/redux';
-import { phaseStateSlice } from '@rolimoa/common/redux';
-import { matchStateSlice } from '@rolimoa/common/redux';
-import { operationLogsStateSlice } from '@rolimoa/common/redux';
-import { resultRecordsStateSlice } from '@rolimoa/common/redux';
-import { connectedDevicesStateSlice } from '@rolimoa/common/redux';
-import { streamingInterfaceSlice } from '@rolimoa/common/redux';
+import {
+  connectedDevicesStateSlice,
+  matchStateSlice,
+  operationLogsStateSlice,
+  phaseStateSlice,
+  resultRecordsStateSlice,
+  scoreStateSlice,
+  streamingInterfaceSlice,
+} from '@rolimoa/common/redux';
 import { connectionState } from '@/atoms/connectionState';
 import { HomePage } from '@/pages/HomePage';
 import { RefereePage } from '@/pages/RefereePage';

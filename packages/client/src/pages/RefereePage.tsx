@@ -3,7 +3,7 @@ import { Dashboard } from '@/components/Dashboard';
 import { MatchResultContainer } from '@/components/Referee/MatchResultContainer';
 import { OperationLogTable } from '@/components/Referee/OperationLogTable';
 
-export const RefereePage = () => {
+export function RefereePage() {
   return (
     <Dashboard title="主審入力">
       <Grid container spacing={3}>
@@ -16,4 +16,4 @@ export const RefereePage = () => {
       </Grid>
     </Dashboard>
   );
-};
+}

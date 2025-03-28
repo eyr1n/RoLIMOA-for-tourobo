@@ -1,4 +1,4 @@
-import { type FC, useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   Backdrop,
@@ -20,11 +20,11 @@ import {
 } from '@mui/material';
 import CheckIcon from '@mui/icons-material/Check';
 import FlagIcon from '@mui/icons-material/Flag';
-import type { RootState } from '@rolimoa/common/redux';
 import {
   type FieldSideType,
   scoreStateSlice,
   type FieldScoreStateType,
+  type RootState,
 } from '@rolimoa/common/redux';
 import { Dashboard } from '@/components/Dashboard';
 import { ScoreInputVgoalButton } from '@/components/ScoreInputVgoalButton';
@@ -40,10 +40,10 @@ type VGoalTimeInputProps = {
   vgoalTime?: number;
 };
 
-const VGoalTimeInput: FC<VGoalTimeInputProps> = ({
+function VGoalTimeInput({
   onInputValidVgoalTime,
   vgoalTime,
-}) => {
+}: VGoalTimeInputProps) {
   const initialValue = vgoalTime ? formatTime(vgoalTime, 'm:ss') : '';
   const [value, setValue] = useState(initialValue);
   const [invalid, setInvalid] = useState(false);
@@ -87,14 +87,14 @@ const VGoalTimeInput: FC<VGoalTimeInputProps> = ({
       </Box>
     </Tooltip>
   );
-};
+}
 
 type FlagInputProps = {
   fieldSide: FieldSideType;
   color: 'primary' | 'secondary';
 };
 
-const FlagInput: FC<FlagInputProps> = ({ fieldSide, color }) => {
+function FlagInput({ fieldSide, color }: FlagInputProps) {
   const dispatch = useDispatch();
   const scoreState = useSelector<RootState, FieldScoreStateType>(
     (state) => state.score.fields[fieldSide],
@@ -167,13 +167,13 @@ const FlagInput: FC<FlagInputProps> = ({ fieldSide, color }) => {
       )}
     </>
   );
-};
+}
 
 type ScoreDisplayProps = {
   fieldSide: FieldSideType;
 };
 
-const ScoreDisplay: FC<ScoreDisplayProps> = ({ fieldSide }) => {
+function ScoreDisplay({ fieldSide }: ScoreDisplayProps) {
   const { refs } = useDisplayScore(fieldSide);
   const refValues = Object.entries(refs ?? {});
 
@@ -203,13 +203,13 @@ const ScoreDisplay: FC<ScoreDisplayProps> = ({ fieldSide }) => {
       )}
     </Grid>
   );
-};
+}
 
 type ScoreInputPageProps = {
   fieldSide: FieldSideType;
 };
 
-export const ScoreInputPage: FC<ScoreInputPageProps> = ({ fieldSide }) => {
+export function ScoreInputPage({ fieldSide }: ScoreInputPageProps) {
   const isScoreEnable = useSelector<RootState, boolean>(
     (state) => state.score.fields[fieldSide].enable,
   );
@@ -269,4 +269,4 @@ export const ScoreInputPage: FC<ScoreInputPageProps> = ({ fieldSide }) => {
       </Grid>
     </Dashboard>
   );
-};
+}

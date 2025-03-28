@@ -1,4 +1,4 @@
-import { type FC, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useResolvedPath } from 'react-router';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
@@ -52,7 +52,7 @@ function addQueryToUrl(
   return url.href;
 }
 
-export const StreamingOverlayOpenerPage: FC = () => {
+export function StreamingOverlayOpenerPage() {
   const timeOffset = useAtomValue(unixtimeOffset);
   const baseUrl = useAbsoluteUrl('/streaming-overlay');
   const [overlayUrl, setOverlayUrl] = useState(baseUrl);
@@ -130,9 +130,9 @@ export const StreamingOverlayOpenerPage: FC = () => {
       </Grid>
     </Dashboard>
   );
-};
+}
 
-const StreamingInterfaceController: FC = () => {
+function StreamingInterfaceController() {
   const dispatch = useDispatch();
   const showMainHud = useSelector<RootState, boolean>(
     (state) => state.streamingInterface.showMainHud,
@@ -173,4 +173,4 @@ const StreamingInterfaceController: FC = () => {
       />
     </Box>
   );
-};
+}

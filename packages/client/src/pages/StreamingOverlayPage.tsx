@@ -1,4 +1,4 @@
-import type { FC, Ref } from 'react';
+import type { Ref } from 'react';
 import { useSelector } from 'react-redux';
 import type { RootState } from '@rolimoa/common/redux';
 import type { FieldSideType } from '@rolimoa/common/redux';
@@ -16,7 +16,7 @@ type ScoreBlockProps = {
   placement: 'left' | 'right';
 };
 
-const ScoreBlock: FC<ScoreBlockProps> = ({ fieldSide, placement }) => {
+function ScoreBlock({ fieldSide, placement }: ScoreBlockProps) {
   const teamName = useSelector<RootState, string | undefined>(
     (state) => state.match.teams[fieldSide]?.shortName,
   );
@@ -106,9 +106,9 @@ const ScoreBlock: FC<ScoreBlockProps> = ({ fieldSide, placement }) => {
       </Box>
     </Box>
   );
-};
+}
 
-const TimerDisplay: FC<{ ref?: Ref<null> }> = ({ ref }) => {
+function TimerDisplay({ ref }: { ref?: Ref<null> }) {
   const { description, displayTime } = useDisplayTimer();
   const matchName = useSelector<RootState, string>((state) => state.match.name);
 
@@ -166,13 +166,13 @@ const TimerDisplay: FC<{ ref?: Ref<null> }> = ({ ref }) => {
       </Box>
     </>
   );
-};
+}
 
 export type StreamingOverlayPageParams = {
   reverse: boolean;
 };
 
-export const StreamingOverlayPage: FC = () => {
+export function StreamingOverlayPage() {
   const [searchParams] = useSearchParams();
   const params: StreamingOverlayPageParams = {
     reverse: searchParams.get('reverse') !== null,
@@ -235,4 +235,4 @@ export const StreamingOverlayPage: FC = () => {
       </Slide>
     </Box>
   );
-};
+}

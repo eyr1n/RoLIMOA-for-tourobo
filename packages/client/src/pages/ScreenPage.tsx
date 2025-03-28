@@ -1,4 +1,4 @@
-import { type FC, useState } from 'react';
+import { useState } from 'react';
 import { ScoreBlock, type ScoreBlockProps } from '@/components/ScoreBlock';
 import { TimerDisplay } from '@/components/TimerDisplay';
 import { usePlaySoundEffect } from '@/functional/usePlaySoundEffect';
@@ -6,7 +6,7 @@ import { Box, Grid, IconButton } from '@mui/material';
 import { CenterFlex } from '@/ui/CenterFlex';
 import CachedIcon from '@mui/icons-material/Cached';
 
-export const ScreenPage: FC = () => {
+export function ScreenPage() {
   usePlaySoundEffect();
 
   const [reverse, setReverse] = useState(false);
@@ -77,4 +77,4 @@ export const ScreenPage: FC = () => {
       </Grid>
     </Box>
   );
-};
+}
