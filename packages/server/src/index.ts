@@ -1,8 +1,10 @@
 import express from 'express';
 import expressWs from 'express-ws';
 import WebSocket from 'ws';
-import { type AnyAction, createStore } from 'redux';
-import { rootReducer } from '@rolimoa/common/redux';
+import {
+  configureRoLIMOAStore,
+  type UnknownAction,
+} from '@rolimoa/common/redux';
 import { connectedDevicesStateSlice } from '@rolimoa/common/redux';
 import path from 'node:path';
 import crypt from 'node:crypto';
@@ -10,9 +12,7 @@ import { loadFromFile, saveToFile } from './backup.js';
 
 const { app, getWss } = expressWs(express());
 
-const store = createStore(rootReducer, loadFromFile('./save'));
-
-
+const store = configureRoLIMOAStore(loadFromFile('./save'));
 
 app.ws('/ws', (ws) => {
   const wss = getWss();
@@ -37,8 +37,8 @@ app.ws('/ws', (ws) => {
 
     if (type === 'dispatch' || type === 'dispatch_all') {
       const clientActions = body?.actions;
-      const actions = clientActions.map((action: AnyAction) => {
-        if (action.type === 'operationLogs/addLog') {
+      const actions = clientActions.map((action: UnknownAction) => {
+        if (action.type === 'operationLogs/addLog' && action.payload) {
           return {
             ...action,
             payload: {

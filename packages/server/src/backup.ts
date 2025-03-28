@@ -1,11 +1,8 @@
-import type { createStore } from 'redux';
-import type { RootState } from '@rolimoa/common/redux';
+import type { configureRoLIMOAStore, RootState } from '@rolimoa/common/redux';
 import { format } from 'date-fns';
 import fs from 'node:fs';
 import path from 'node:path';
 import config from '@rolimoa/common/config';
-
-type StoreType = ReturnType<typeof createStore>;
 
 export function loadFromFile(directoryPath: string): RootState | undefined {
   const jsonFiles = fs
@@ -32,7 +29,7 @@ export function loadFromFile(directoryPath: string): RootState | undefined {
 
 export async function saveToFile(
   directoryPath: string,
-  store: StoreType,
+  store: ReturnType<typeof configureRoLIMOAStore>,
 ): Promise<void> {
   try {
     const storeStaet = store.getState();
