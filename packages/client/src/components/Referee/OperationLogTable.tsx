@@ -7,8 +7,8 @@ import {
 } from 'material-react-table';
 import { useSelector } from 'react-redux';
 import type { RootState } from '@rolimoa/common/redux';
-import type { OperationLog } from '@rolimoa/common/redux';
 import { unixToTimeWithMillis } from '@/util/formatTime';
+import type { OperationLog } from '@rolimoa/common/schema';
 
 type LogRow = {
   id: string;

@@ -1,19 +1,6 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import config from '../../config/index.js';
-
-export type ScoreState = {
-  fields: Record<FieldSideType, FieldScoreStateType>;
-  global: ObjectsStateType; // 青・赤共通のオブジェクト
-};
-
-export type FieldSideType = 'blue' | 'red';
-export type FieldScoreStateType = {
-  tasks: ObjectsStateType; // 各チームのタスクの進行状況
-  enable: boolean; // スコアの有効フラグ
-  winner: boolean; // 勝利フラグ
-  vgoal?: number; // Vゴールタイム
-};
-export type ObjectsStateType = { [objectId: string]: number };
+import type { FieldSideType, ScoreState } from '../../schema/index.js';
 
 export const scoreInitialState: ScoreState = {
   fields: {

@@ -1,16 +1,46 @@
 import { z } from 'zod';
 
-const commonStyleSchema = z.object({
+const CommonStyle = z.object({
   width: z.number().optional(),
 });
 
-const commonSchema = {
+const Common = {
   id: z.string(),
-  style: commonStyleSchema.optional(),
+  style: CommonStyle.optional(),
 };
 
-export const taskObjectToggleSwitchSchema = z.object({
-  ...commonSchema,
+const Color = z.enum([
+  'standard',
+  'primary',
+  'secondary',
+  'error',
+  'info',
+  'success',
+  'warning',
+]);
+
+export const TaskObjectToggleButton = z.object({
+  ...Common,
+  type: z.literal('toggle_button'),
+  option: z.object({
+    buttons: z.array(
+      z.object({
+        value: z.number(),
+        label: z.string(),
+        style: z
+          .object({
+            color: Color.optional(),
+          })
+          .optional(),
+      }),
+    ),
+    vertical: z.boolean().optional(),
+  }),
+  style: CommonStyle.optional(),
+});
+
+export const TaskObjectToggleSwitch = z.object({
+  ...Common,
   type: z.literal('toggle_switch'),
   option: z.object({
     off_value: z.number(),
@@ -20,37 +50,8 @@ export const taskObjectToggleSwitchSchema = z.object({
   }),
 });
 
-const colorSchema = z.enum([
-  'standard',
-  'primary',
-  'secondary',
-  'error',
-  'info',
-  'success',
-  'warning',
-]);
-export const taskObjectToggleButtonSchema = z.object({
-  ...commonSchema,
-  type: z.literal('toggle_button'),
-  option: z.object({
-    buttons: z.array(
-      z.object({
-        value: z.number(),
-        label: z.string(),
-        style: z
-          .object({
-            color: colorSchema.optional(),
-          })
-          .optional(),
-      }),
-    ),
-    vertical: z.boolean().optional(),
-  }),
-  style: commonStyleSchema.optional(),
-});
-
-export const taskObjectMultiButtonSchema = z.object({
-  ...commonSchema,
+export const TaskObjectMultiButton = z.object({
+  ...Common,
   type: z.literal('multi_button'),
   option: z.object({
     buttons: z.array(
@@ -59,7 +60,7 @@ export const taskObjectMultiButtonSchema = z.object({
         label: z.string(),
         style: z
           .object({
-            color: colorSchema.optional(),
+            color: Color.optional(),
             variant: z.enum(['text', 'outlined', 'contained']).optional(),
           })
           .optional(),
@@ -69,19 +70,13 @@ export const taskObjectMultiButtonSchema = z.object({
   }),
 });
 
-export const customControlPanelSchema = z.union([
-  taskObjectToggleButtonSchema,
-  taskObjectToggleSwitchSchema,
-  taskObjectMultiButtonSchema,
+export const CustomControlPanel = z.union([
+  TaskObjectToggleButton,
+  TaskObjectToggleSwitch,
+  TaskObjectMultiButton,
 ]);
 
-export type TaskObjectToggleSwitchUiType = z.infer<
-  typeof taskObjectToggleSwitchSchema
->;
-export type TaskObjectToggleButtonUiType = z.infer<
-  typeof taskObjectToggleButtonSchema
->;
-export type taskObjectMultiButtonUiType = z.infer<
-  typeof taskObjectMultiButtonSchema
->;
-export type CustomControlPanelType = z.infer<typeof customControlPanelSchema>;
+export type TaskObjectToggleButton = z.infer<typeof TaskObjectToggleButton>;
+export type TaskObjectToggleSwitch = z.infer<typeof TaskObjectToggleSwitch>;
+export type TaskObjectMultiButton = z.infer<typeof TaskObjectMultiButton>;
+export type CustomControlPanel = z.infer<typeof CustomControlPanel>;

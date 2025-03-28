@@ -4,16 +4,13 @@ import type { RootState } from '@rolimoa/common/redux';
 import { scoreStateSlice } from '@rolimoa/common/redux';
 import { ErrorObject } from './ErrorObject';
 import { LyricalSocket } from '@/lyricalSocket';
-import type {
-  CustomControlPanelType,
-  TaskObjectConfigType,
-} from '@rolimoa/common/schema';
+import type { CustomControlPanel, TaskObject } from '@rolimoa/common/schema';
 import { BaseControl } from './BaseControl';
 import { operationLogsStateSlice } from '@rolimoa/common/redux';
 
 type GlobalObjectContainerProps = {
-  taskConfig: TaskObjectConfigType;
-  controlConfig?: CustomControlPanelType;
+  taskConfig: TaskObject;
+  controlConfig?: CustomControlPanel;
 };
 
 export const GlobalObjectContainer: FC<GlobalObjectContainerProps> = ({

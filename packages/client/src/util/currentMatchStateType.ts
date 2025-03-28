@@ -1,4 +1,4 @@
-import type { FieldSideType } from '@rolimoa/common/redux';
+import type { FieldSideType } from '@rolimoa/common/schema';
 
 export type CurrentMatchStateType = {
   // 自チームの青コート or 赤コート

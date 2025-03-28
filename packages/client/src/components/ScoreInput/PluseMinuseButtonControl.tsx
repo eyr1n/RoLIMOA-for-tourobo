@@ -1,11 +1,11 @@
 import { type FC, useCallback } from 'react';
 import { Button, ButtonGroup, Box, Paper, Typography } from '@mui/material';
 import type { SxProps } from '@mui/material/styles';
-import type { TaskObjectConfigType } from '@rolimoa/common/schema';
+import type { TaskObject } from '@rolimoa/common/schema';
 
 interface PluseMinuseButtonControlProps {
   color: 'primary' | 'secondary' | 'inherit';
-  config: TaskObjectConfigType;
+  config: TaskObject;
   currentValue: number;
   stateUpdate: (value: number, cmd: string) => void;
 }

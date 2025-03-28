@@ -1,12 +1,12 @@
 import type { FC } from 'react';
 import type {
-  CustomControlPanelType,
-  TaskObjectConfigType,
+  CustomControlPanel,
+  FieldSideType,
+  TaskObject,
 } from '@rolimoa/common/schema';
-import type { FieldSideType } from '@rolimoa/common/redux';
 import { GlobalObjectContainer } from './GlobalObjectContainer';
 import { TaskObjectContainer } from './TaskObjectContainer';
-import { config } from '@/config/load';
+import config from '@rolimoa/common/config';
 import { ErrorObject } from './ErrorObject';
 
 type TaskType = 'global' | 'task';
@@ -41,8 +41,8 @@ function findTaskObjectConfig(type: TaskType, id: string) {
 
 type ScoreInputControlProps = {
   fieldSide: FieldSideType;
-  taskObjectConfig?: TaskObjectConfigType;
-  controlPanelConfig?: CustomControlPanelType;
+  taskObjectConfig?: TaskObject;
+  controlPanelConfig?: CustomControlPanel;
 };
 
 export const ScoreInputControl: FC<ScoreInputControlProps> = ({

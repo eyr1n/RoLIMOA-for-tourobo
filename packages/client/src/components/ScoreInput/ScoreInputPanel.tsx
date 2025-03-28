@@ -1,7 +1,7 @@
 import type { FC } from 'react';
-import type { FieldSideType } from '@rolimoa/common/redux';
-import { config } from '@/config/load';
+import config from '@rolimoa/common/config';
 import { ScoreInputControl } from './ScoreInputControl';
+import type { FieldSideType } from '@rolimoa/common/schema';
 
 type ScoreInputPanelProps = {
   fieldSide: FieldSideType;

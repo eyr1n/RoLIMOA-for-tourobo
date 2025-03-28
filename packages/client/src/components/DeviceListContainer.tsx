@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import { useSelector } from 'react-redux';
 import type { RootState } from '@rolimoa/common/redux';
-import type { ConnectedDevice } from '@rolimoa/common/redux';
+import type { ConnectedDevice } from '@rolimoa/common/schema';
 import {
   IconButton,
   Paper,

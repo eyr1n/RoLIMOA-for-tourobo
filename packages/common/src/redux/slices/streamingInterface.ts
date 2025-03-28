@@ -1,9 +1,5 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
-
-export type StreamingInterface = {
-  showMainHud: boolean;
-  showScoreBoard: boolean;
-};
+import type { StreamingInterface } from '../../schema/index.js';
 
 const initialState: StreamingInterface = {
   showMainHud: true,

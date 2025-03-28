@@ -1,17 +1,14 @@
 import { type FC, useCallback, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import type { RootState } from '@rolimoa/common/redux';
-import {
-  type PhaseState,
-  type CurrentPhaseState,
-  phaseStateSlice,
-} from '@rolimoa/common/redux';
+import { phaseStateSlice } from '@rolimoa/common/redux';
 import { operationLogsStateSlice } from '@rolimoa/common/redux';
 import { unixtimeOffset } from '@/atoms/unixtimeOffset';
 import { LyricalSocket } from '@/lyricalSocket';
 import * as Phase from '@/util/PhaseStateUtil';
 import { TimerMasterComponent } from './TimerMasterComponent';
 import { useAtomValue } from 'jotai';
+import type { CurrentPhaseState, PhaseState } from '@rolimoa/common/schema';
 
 function gotoPhaseCommand(
   currentPhase: CurrentPhaseState,

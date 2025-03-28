@@ -1,15 +1,14 @@
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import type { RootState } from '@rolimoa/common/redux';
-import type { PhaseState } from '@rolimoa/common/redux';
 import { formatTime } from '@/util/formatTime';
-import type { TimeProgressConfigType } from '@rolimoa/common/schema';
+import type { PhaseState, TimeProgress } from '@rolimoa/common/schema';
 import * as Phase from '@/util/PhaseStateUtil';
 
 // 表示する時間の文字列を取得する
 function getDisplayString(
   phaseState: PhaseState,
-  currentConfig: Required<TimeProgressConfigType>,
+  currentConfig: Required<TimeProgress>,
 ): string {
   if (currentConfig.type === 'default') {
     return '----';
@@ -40,7 +39,7 @@ function getDisplayString(
 // 適用するフェーズ設定や、フェーズ時刻を取得する
 function getCustomConfig(
   phaseState: PhaseState,
-  currentConfig: Required<TimeProgressConfigType>,
+  currentConfig: Required<TimeProgress>,
 ) {
   let applyConfig = currentConfig;
   let elapsedSec = phaseState.elapsedSecond;

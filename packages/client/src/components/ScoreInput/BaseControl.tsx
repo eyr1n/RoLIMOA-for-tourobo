@@ -1,17 +1,14 @@
 import type { FC } from 'react';
 import { Grid } from '@mui/material';
-import type {
-  CustomControlPanelType,
-  TaskObjectConfigType,
-} from '@rolimoa/common/schema';
+import type { CustomControlPanel, TaskObject } from '@rolimoa/common/schema';
 import { ToggleSwitchControl } from './ToggleSwitchControl';
 import { ToggleButtonControl } from './ToggleButtonControl';
 import { MultiButtonControl } from './MultiButtonControl';
 import { PluseMinuseButtonControl } from './PluseMinuseButtonControl';
 
 interface BaseControlProps {
-  taskConfig: TaskObjectConfigType;
-  controlConfig?: CustomControlPanelType;
+  taskConfig: TaskObject;
+  controlConfig?: CustomControlPanel;
   currentValue: number;
   stateUpdate: (value: number, cmd: string) => void;
   color?: 'primary' | 'secondary';

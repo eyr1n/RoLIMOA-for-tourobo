@@ -1,27 +1,5 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
-
-export type OperationLog = {
-  id: string;
-  op: OperationType;
-  at?: number;
-  by?: string;
-};
-
-export type OperationType = ScoreUpdateType | PhaseChangeType;
-
-export type ScoreUpdateType = {
-  type: 'ScoreUpdate';
-  field: 'blue' | 'red' | 'global';
-  obj: string;
-  value: number;
-  cmd?: string; // e.g. "+1", "=0"
-};
-
-export type PhaseChangeType = {
-  type: 'PhaseChange';
-  phase: string;
-  isAuto?: boolean;
-};
+import type { OperationLog } from '../../schema/index.js';
 
 type PartialBy<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
 

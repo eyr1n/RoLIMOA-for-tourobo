@@ -30,7 +30,7 @@ export const NowUnixtimeDisplay: FC<Props> = ({ offsetTime = 0 }) => {
   });
   const [isPluse, setIsPluse] = useState<boolean>(false);
   const beforeSeconds = useRef<number>(0);
-  const timerHandler = useRef<ReturnType<typeof setInterval> | undefined>();
+  const timerHandler = useRef<ReturnType<typeof setInterval>>(undefined);
 
   useEffect(() => {
     timerHandler.current = setInterval(() => {

@@ -1,13 +1,10 @@
 import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import type { RootState } from '@rolimoa/common/redux';
-import {
-  calculateElapsedSecond,
-  type CurrentPhaseState,
-  phaseStateSlice,
-} from '@rolimoa/common/redux';
+import { calculateElapsedSecond, phaseStateSlice } from '@rolimoa/common/redux';
 import { unixtimeOffset } from '@/atoms/unixtimeOffset';
 import { useAtomValue } from 'jotai';
+import type { CurrentPhaseState } from '@rolimoa/common/schema';
 
 export const useAppRootTimer = () => {
   const dispatch = useDispatch();

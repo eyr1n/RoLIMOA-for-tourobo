@@ -1,20 +1,21 @@
 import { type FC, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import type { RootState } from '@rolimoa/common/redux';
-import { type FieldSideType, scoreStateSlice } from '@rolimoa/common/redux';
+import { scoreStateSlice } from '@rolimoa/common/redux';
 import { ErrorObject } from './ErrorObject';
 import { LyricalSocket } from '@/lyricalSocket';
 import type {
-  CustomControlPanelType,
-  TaskObjectConfigType,
+  CustomControlPanel,
+  FieldSideType,
+  TaskObject,
 } from '@rolimoa/common/schema';
 import { BaseControl } from './BaseControl';
 import { operationLogsStateSlice } from '@rolimoa/common/redux';
 
 type TaskObjectContainerProps = {
   fieldSide: FieldSideType;
-  taskConfig: TaskObjectConfigType;
-  controlConfig?: CustomControlPanelType;
+  taskConfig: TaskObject;
+  controlConfig?: CustomControlPanel;
 };
 
 export const TaskObjectContainer: FC<TaskObjectContainerProps> = ({

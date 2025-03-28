@@ -6,15 +6,15 @@ import {
   Typography,
 } from '@mui/material';
 import type {
-  TaskObjectConfigType,
-  TaskObjectToggleButtonUiType,
+  TaskObject,
+  TaskObjectToggleButton,
 } from '@rolimoa/common/schema';
 
 interface ToggleButtonControlProps {
-  taskConfig: TaskObjectConfigType;
+  taskConfig: TaskObject;
   currentValue: number;
   stateUpdate: (value: number, cmd: string) => void;
-  controlConfig: TaskObjectToggleButtonUiType;
+  controlConfig: TaskObjectToggleButton;
 }
 
 export const ToggleButtonControl: FC<ToggleButtonControlProps> = ({

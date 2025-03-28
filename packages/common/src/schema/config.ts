@@ -1,8 +1,8 @@
 import { z } from 'zod';
-import { taskObjectSchema } from './taskObject.js';
-import { customControlPanelSchema } from './controlPanel.js';
+import { CustomControlPanel } from './controlPanel.js';
+import { TaskObject } from './taskObject.js';
 
-const vgoalConditionSchema = z.union([
+const VGoalCondition = z.union([
   z.object({
     type: z.literal('manual'),
     required: z.object({
@@ -25,7 +25,9 @@ const vgoalConditionSchema = z.union([
   }),
 ]);
 
-const timeProgressSchema = z.object({
+export const TimeFormat = z.enum(['mm:ss', 'm:ss', 'ss', 's']);
+
+export const TimeProgress = z.object({
   id: z.string(),
   type: z.enum(['default', 'ready', 'count']),
   time: z.number().optional(),
@@ -33,7 +35,7 @@ const timeProgressSchema = z.object({
   isAutoTransition: z.boolean().optional(),
   style: z
     .object({
-      timerFormat: z.enum(['mm:ss', 'm:ss', 'ss', 's']).optional(),
+      timerFormat: TimeFormat.optional(),
       timerType: z.string().optional(),
     })
     .optional(),
@@ -48,13 +50,13 @@ const timeProgressSchema = z.object({
     .optional(),
 });
 
-export const configSchema = z.object({
+export const Config = z.object({
   contest_info: z.object({
     name: z.string(),
   }),
   rule: z.object({
-    global_objects: z.array(taskObjectSchema),
-    task_objects: z.array(taskObjectSchema),
+    global_objects: z.array(TaskObject),
+    task_objects: z.array(TaskObject),
     score: z.union([
       z.object({
         format: z.literal('simple'),
@@ -75,7 +77,7 @@ export const configSchema = z.object({
     ]),
     vgoal: z.object({
       name: z.string(),
-      condition: vgoalConditionSchema,
+      condition: VGoalCondition,
     }),
     control_panel: z.union([
       z.object({
@@ -83,11 +85,11 @@ export const configSchema = z.object({
       }),
       z.object({
         type: z.literal('custom'),
-        panels: z.array(customControlPanelSchema).optional(),
+        panels: z.array(CustomControlPanel).optional(),
       }),
     ]),
   }),
-  time_progress: z.array(timeProgressSchema),
+  time_progress: z.array(TimeProgress),
   teams_info: z.array(
     z.object({
       id: z.string(),
@@ -101,11 +103,6 @@ export const configSchema = z.object({
   }),
 });
 
-const timerFormatSchema =
-  configSchema.shape.time_progress.element.shape.style.unwrap().shape
-    .timerFormat;
-
-export type ConfigType = z.infer<typeof configSchema>;
-export type TaskObjectConfigType = ConfigType['rule']['task_objects'][number];
-export type TimeProgressConfigType = ConfigType['time_progress'][number];
-export type TimeFormat = NonNullable<z.infer<typeof timerFormatSchema>>;
+export type TimeFormat = z.infer<typeof TimeFormat>;
+export type TimeProgress = z.infer<typeof TimeProgress>;
+export type Config = z.infer<typeof Config>;

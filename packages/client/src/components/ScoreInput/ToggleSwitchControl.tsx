@@ -8,16 +8,16 @@ import {
   FormControlLabel,
 } from '@mui/material';
 import type {
-  TaskObjectConfigType,
-  TaskObjectToggleSwitchUiType,
+  TaskObject,
+  TaskObjectToggleSwitch,
 } from '@rolimoa/common/schema';
 
 interface ToggleSwitchControlProps {
   color: 'primary' | 'secondary' | 'default';
-  taskConfig: TaskObjectConfigType;
+  taskConfig: TaskObject;
   currentValue: number;
   stateUpdate: (value: number, cmd: string) => void;
-  controlConfig: TaskObjectToggleSwitchUiType;
+  controlConfig: TaskObjectToggleSwitch;
 }
 
 // しばらくは実際に使わなそうなので、試験的な実装

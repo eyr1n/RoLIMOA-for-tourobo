@@ -20,13 +20,17 @@ import { ScoreBlock } from '@/components/ScoreBlock';
 import { useDisplayScore } from '@/functional/useDisplayScore';
 import { useDispatch, useSelector } from 'react-redux';
 import type { RootState } from '@rolimoa/common/redux';
-import type { FieldSideType, ScoreState } from '@rolimoa/common/redux';
 import { resultRecordsStateSlice } from '@rolimoa/common/redux';
-import { type MatchState, matchStateSlice } from '@rolimoa/common/redux';
-import type { CurrentPhaseState } from '@rolimoa/common/redux';
+import { matchStateSlice } from '@rolimoa/common/redux';
 import { LyricalSocket } from '@/lyricalSocket';
-import { config } from '@/config/load';
 import * as Phase from '@/util/PhaseStateUtil';
+import type {
+  MatchState,
+  ScoreState,
+  CurrentPhaseState,
+  FieldSideType,
+} from '@rolimoa/common/schema';
+import config from '@rolimoa/common/config';
 
 const thStyle: SxProps<Theme> = {
   whiteSpace: 'nowrap',

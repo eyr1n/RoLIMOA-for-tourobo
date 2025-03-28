@@ -1,14 +1,14 @@
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import type { RootState } from '@rolimoa/common/redux';
-import type {
-  FieldScoreStateType,
-  FieldSideType,
-  ScoreState,
-} from '@rolimoa/common/redux';
-import type { PhaseState } from '@rolimoa/common/redux';
 import type { CurrentMatchStateType } from '@/util/currentMatchStateType';
 import * as Phase from '@/util/PhaseStateUtil';
+import type {
+  FieldScoreStateType,
+  PhaseState,
+  FieldSideType,
+  ScoreState,
+} from '@rolimoa/common/schema';
 
 // 点数計算に、適切な経過時間を取得する
 function matchElapsedSec(

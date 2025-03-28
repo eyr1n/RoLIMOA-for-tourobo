@@ -1,10 +1,5 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
-
-export type ConnectedDevice = {
-  deviceName: string;
-  sockId: string;
-  currentPath: string;
-};
+import type { ConnectedDevice } from '../../schema/index.js';
 
 type PartialExcept<T, K extends keyof T> = Pick<T, K> & Partial<T>; // T型からK以外のプロパティをPartialにする
 type PartialConnectedDevice = PartialExcept<ConnectedDevice, 'sockId'>;

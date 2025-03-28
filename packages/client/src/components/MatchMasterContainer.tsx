@@ -1,15 +1,16 @@
 import { type FC, useCallback, useState } from 'react';
 import { useSelector } from 'react-redux';
 import type { RootState } from '@rolimoa/common/redux';
-import { type TeamType, matchStateSlice } from '@rolimoa/common/redux';
+import { matchStateSlice } from '@rolimoa/common/redux';
 import { phaseStateSlice } from '@rolimoa/common/redux';
 import { scoreInitialState, scoreStateSlice } from '@rolimoa/common/redux';
 import { unixtimeOffset } from '@/atoms/unixtimeOffset';
 import { LyricalSocket } from '@/lyricalSocket';
 import * as Phase from '@/util/PhaseStateUtil';
-import { config } from '@/config/load';
+import config from '@rolimoa/common/config';
 import { MatchMasterComponent } from './MatchMasterComponent';
 import { useAtomValue } from 'jotai';
+import type { TeamType } from '@rolimoa/common/schema';
 
 // 省略名からチームリストの情報を取得、なければスタブを作成
 function getTeamInfo(short: string): TeamType {

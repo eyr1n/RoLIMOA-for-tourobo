@@ -21,7 +21,7 @@ import { ScreenPage } from '@/pages/ScreenPage';
 import { LoadingOverlay } from '@/ui/LoadingOverlay';
 import { useAppRootTimer } from '@/functional/useAppRootTimer';
 import { useLoadSetting } from '@/functional/useLoadSetting';
-import { config } from '@/config/load';
+import config from '@rolimoa/common/config';
 import { LyricalSocket } from './lyricalSocket';
 import { getSetting } from './util/clientStoredSetting';
 import { useAtom } from 'jotai';

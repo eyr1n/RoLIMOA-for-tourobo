@@ -8,10 +8,10 @@ import {
 } from '@mui/material';
 import { useSelector } from 'react-redux';
 import type { RootState } from '@rolimoa/common/redux';
-import type { FieldSideType } from '@rolimoa/common/redux';
 import { useDisplayScore } from '@/functional/useDisplayScore';
 import { formatTime } from '@/util/formatTime';
-import { config } from '@/config/load';
+import config from '@rolimoa/common/config';
+import type { FieldSideType } from '@rolimoa/common/schema';
 
 export type ScoreBlockProps = {
   fieldSide: FieldSideType;

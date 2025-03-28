@@ -1,17 +1,14 @@
 import { type FC, useCallback } from 'react';
 import { Button, ButtonGroup, Box, Paper, Typography } from '@mui/material';
 import type { SxProps } from '@mui/material/styles';
-import type {
-  TaskObjectConfigType,
-  taskObjectMultiButtonUiType,
-} from '@rolimoa/common/schema';
+import type { TaskObject, TaskObjectMultiButton } from '@rolimoa/common/schema';
 
 interface MultiButtonControlProps {
   color: 'primary' | 'secondary' | 'inherit';
-  taskConfig: TaskObjectConfigType;
+  taskConfig: TaskObject;
   currentValue: number;
   stateUpdate: (value: number, cmd: string) => void;
-  controlConfig: taskObjectMultiButtonUiType;
+  controlConfig: TaskObjectMultiButton;
 }
 
 export const MultiButtonControl: FC<MultiButtonControlProps> = ({

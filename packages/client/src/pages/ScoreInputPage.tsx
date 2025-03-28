@@ -20,12 +20,7 @@ import {
 } from '@mui/material';
 import CheckIcon from '@mui/icons-material/Check';
 import FlagIcon from '@mui/icons-material/Flag';
-import {
-  type FieldSideType,
-  scoreStateSlice,
-  type FieldScoreStateType,
-  type RootState,
-} from '@rolimoa/common/redux';
+import { scoreStateSlice, type RootState } from '@rolimoa/common/redux';
 import { Dashboard } from '@/components/Dashboard';
 import { ScoreInputVgoalButton } from '@/components/ScoreInputVgoalButton';
 import { LyricalSocket } from '@/lyricalSocket';
@@ -33,7 +28,11 @@ import { ScoreBlock } from '@/components/ScoreBlock';
 import { useDisplayScore } from '@/functional/useDisplayScore';
 import { formatTime, parseFormatTime } from '@/util/formatTime';
 import { ScoreInputPanel } from '@/components/ScoreInput/ScoreInputPanel';
-import { config } from '@/config/load';
+import config from '@rolimoa/common/config';
+import type {
+  FieldSideType,
+  FieldScoreStateType,
+} from '@rolimoa/common/schema';
 
 type VGoalTimeInputProps = {
   onInputValidVgoalTime: (vgoalTime: number) => void;

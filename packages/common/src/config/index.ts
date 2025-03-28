@@ -1,4 +1,4 @@
-import type { ConfigType } from '../schema/index.js';
+import type { Config } from '../schema/index.js';
 
 export default {
   contest_info: {
@@ -386,4 +386,4 @@ export default {
   client: {
     standalone_mode: false,
   },
-} as ConfigType;
+} as Config;

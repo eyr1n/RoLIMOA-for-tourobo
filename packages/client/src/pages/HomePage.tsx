@@ -12,11 +12,12 @@ import {
 import { blue, red } from '@mui/material/colors';
 import { Dashboard } from '@/components/Dashboard';
 import { useSelector } from 'react-redux';
-import type { ResultRecordsType, RootState } from '@rolimoa/common/redux';
+import type { RootState } from '@rolimoa/common/redux';
 import { styled } from '@mui/material/styles';
+import type { ResultRecord } from '@rolimoa/common/schema';
 
 export function GameResultsList() {
-  const results = useSelector<RootState, ResultRecordsType>(
+  const results = useSelector<RootState, ResultRecord[]>(
     (state) => state.resultRecords,
   );
 

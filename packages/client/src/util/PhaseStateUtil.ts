@@ -1,5 +1,5 @@
-import { config } from '@/config/load';
-import type { TimeProgressConfigType } from '@rolimoa/common/schema';
+import config from '@rolimoa/common/config';
+import type { TimeProgress } from '@rolimoa/common/schema';
 
 const defaultConfig = {
   id: 'default',
@@ -12,7 +12,7 @@ const defaultConfig = {
     timerType: 'countup',
   },
   custom: [],
-} as Required<TimeProgressConfigType>;
+} as Required<TimeProgress>;
 
 export function getIndex(phaseId?: string): number {
   if (phaseId === undefined || phaseId === 'default') {
@@ -21,7 +21,7 @@ export function getIndex(phaseId?: string): number {
   return config.time_progress.findIndex((phase) => phase.id === phaseId);
 }
 
-export function getConfig(phaseId?: string): Required<TimeProgressConfigType> {
+export function getConfig(phaseId?: string): Required<TimeProgress> {
   if (phaseId === undefined || phaseId === 'default') {
     return defaultConfig;
   }
@@ -31,7 +31,7 @@ export function getConfig(phaseId?: string): Required<TimeProgressConfigType> {
   };
 }
 
-export function getRawConfig(phaseId: string): TimeProgressConfigType {
+export function getRawConfig(phaseId: string): TimeProgress {
   if (phaseId === 'default') {
     return defaultConfig;
   }

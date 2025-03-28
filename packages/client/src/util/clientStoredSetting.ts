@@ -1,19 +1,19 @@
-import { settingSchema, type SettingType } from '@rolimoa/common/schema';
+import { Setting } from '@rolimoa/common/schema';
 
 const LOCAL_STORAGE_KEY = 'RoLIMOA-setting';
 
-const defaultValues: Required<SettingType> = {
+const defaultValues: Required<Setting> = {
   deviceName: 'ななし＠役割なし',
   timeOffset: 0,
 };
 
-export function getSetting(): SettingType {
+export function getSetting(): Setting {
   const rawSetting = localStorage.getItem(LOCAL_STORAGE_KEY);
   if (!rawSetting) {
     return defaultValues;
   }
 
-  const parseResult = settingSchema.partial().safeParse(JSON.parse(rawSetting));
+  const parseResult = Setting.partial().safeParse(JSON.parse(rawSetting));
   if (!parseResult.success) {
     console.warn(
       'ふぇぇ…LocalStorageの設定が壊れているので、デフォルト値を使います',
@@ -27,7 +27,7 @@ export function getSetting(): SettingType {
   };
 }
 
-export function setSetting(partialSetting: SettingType): void {
+export function setSetting(partialSetting: Setting): void {
   const setting = { ...getSetting(), ...partialSetting };
   localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(setting));
 }

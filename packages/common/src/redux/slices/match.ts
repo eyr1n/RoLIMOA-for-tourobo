@@ -1,20 +1,5 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
-import type { FieldSideType } from './score.js';
-
-export type MatchState = {
-  name: string; // 試合名
-  teams: TeamsType; // 各チームの情報
-  isConfirmed: boolean; // 試合の結果が確定したかどうか
-};
-
-type TeamsType = Record<FieldSideType, TeamType | undefined>;
-
-export type TeamType = {
-  shortName: string; // 表示名
-  id?: string;
-  name?: string;
-  school?: string;
-};
+import type { MatchState } from '../../schema/index.js';
 
 const initialState: MatchState = {
   name: '',
