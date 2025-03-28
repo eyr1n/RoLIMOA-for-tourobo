@@ -29,7 +29,7 @@ const baseTheme = createTheme({
 
 // v4までの"default"の色を再現する"grey"を追加
 // https://github.com/mui/material-ui/issues/27468
-const appTheme = createTheme(baseTheme, {
+export const appTheme = createTheme(baseTheme, {
   components: {
     MuiButton: {
       variants: [
@@ -80,18 +80,3 @@ const appTheme = createTheme(baseTheme, {
     },
   },
 });
-
-type Props = {
-  children: ReactNode;
-};
-
-export const AppMuiThemeProvider = ({ children }: Props) => {
-  return (
-    <StyledEngineProvider injectFirst>
-      <ThemeProvider theme={appTheme}>
-        <CssBaseline />
-        {children}
-      </ThemeProvider>
-    </StyledEngineProvider>
-  );
-};
