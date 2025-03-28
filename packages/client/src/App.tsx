@@ -1,4 +1,4 @@
-import {  useEffect } from 'react';
+import { useEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router';
 import { useDispatch } from 'react-redux';
 import { useRecoilState } from 'recoil';
@@ -140,4 +140,4 @@ export function App() {
       </AppMuiThemeProvider>
     </>
   );
-};
+}
