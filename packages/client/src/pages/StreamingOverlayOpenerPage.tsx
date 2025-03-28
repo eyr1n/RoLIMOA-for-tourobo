@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useResolvedPath } from 'react-router';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
 import {
   Box,
   Divider,
@@ -84,22 +83,23 @@ export function StreamingOverlayOpenerPage() {
                   readOnly: true,
                   endAdornment: (
                     <InputAdornment position="end">
-                      <CopyToClipboard
-                        text={overlayUrl}
-                        onCopy={() => setOpenTooltip(true)}
+                      <Tooltip
+                        title="コピーしました！"
+                        arrow
+                        placement="top"
+                        open={openTooltip}
+                        onClose={() => setOpenTooltip(false)}
                       >
-                        <Tooltip
-                          title="コピーしました！"
-                          arrow
-                          placement="top"
-                          open={openTooltip}
-                          onClose={() => setOpenTooltip(false)}
+                        <IconButton
+                          onClick={() => {
+                            navigator.clipboard
+                              .writeText(overlayUrl)
+                              .then(() => setOpenTooltip(true));
+                          }}
                         >
-                          <IconButton>
-                            <ContentPasteIcon />
-                          </IconButton>
-                        </Tooltip>
-                      </CopyToClipboard>
+                          <ContentPasteIcon />
+                        </IconButton>
+                      </Tooltip>
                       <a href={overlayUrl} target="_blank" rel="noreferrer">
                         <IconButton>
                           <OpenInNewIcon />
