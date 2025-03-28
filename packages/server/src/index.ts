@@ -2,7 +2,8 @@ import express from 'express';
 import expressWs from 'express-ws';
 import WebSocket from 'ws';
 import {
-  configureRoLIMOAStore,
+  configureStore,
+  rootReducer,
   type UnknownAction,
 } from '@rolimoa/common/redux';
 import { connectedDevicesStateSlice } from '@rolimoa/common/redux';
@@ -12,7 +13,10 @@ import { loadFromFile, saveToFile } from './backup.js';
 
 const { app, getWss } = expressWs(express());
 
-const store = configureRoLIMOAStore(loadFromFile('./save'));
+const store = configureStore({
+  reducer: rootReducer,
+  preloadedState: loadFromFile('./save'),
+});
 
 app.ws('/ws', (ws) => {
   const wss = getWss();

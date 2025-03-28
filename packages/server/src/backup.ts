@@ -1,4 +1,4 @@
-import type { configureRoLIMOAStore, RootState } from '@rolimoa/common/redux';
+import type { RootState, Store } from '@rolimoa/common/redux';
 import { format } from 'date-fns';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -29,7 +29,7 @@ export function loadFromFile(directoryPath: string): RootState | undefined {
 
 export async function saveToFile(
   directoryPath: string,
-  store: ReturnType<typeof configureRoLIMOAStore>,
+  store: Store,
 ): Promise<void> {
   try {
     const storeStaet = store.getState();

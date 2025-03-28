@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { App } from './App.tsx';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router';
-import { configureRoLIMOAStore } from '@rolimoa/common/redux';
+import { configureStore, rootReducer } from '@rolimoa/common/redux';
 import { appTheme } from './theme';
 
 import '@fontsource/roboto/300.css';
@@ -17,7 +17,10 @@ import '@fontsource/noto-sans-jp/700.css';
 import '@fontsource/dseg14-classic/400.css';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 
-const store = configureRoLIMOAStore();
+const store = configureStore({
+  reducer: rootReducer,
+  // devTools: process.env.NODE_ENV !== 'production',     // 今は prod でも開発ツールを有効に
+});
 
 createRoot(document.getElementById('root') as HTMLElement).render(
   <StrictMode>

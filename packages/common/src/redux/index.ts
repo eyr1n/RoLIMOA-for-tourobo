@@ -1,4 +1,4 @@
-import { combineSlices, configureStore } from '@reduxjs/toolkit';
+import { combineSlices } from '@reduxjs/toolkit';
 
 import {
   connectedDevicesStateSlice,
@@ -22,14 +22,5 @@ export const rootReducer = combineSlices(
 
 export type RootState = ReturnType<typeof rootReducer>;
 
-export function configureRoLIMOAStore(preloadedState?: Partial<RootState>) {
-  return configureStore({
-    reducer: rootReducer,
-    preloadedState,
-    // devTools: process.env.NODE_ENV !== 'production',     // 今は prod でも開発ツールを有効に
-  });
-}
-
-export type { UnknownAction, Dispatch } from '@reduxjs/toolkit';
-
+export * from '@reduxjs/toolkit';
 export * from './slice/index.js';
