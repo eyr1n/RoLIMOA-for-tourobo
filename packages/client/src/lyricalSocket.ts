@@ -1,4 +1,4 @@
-import type { AnyAction, Dispatch } from '@reduxjs/toolkit';
+import type { UnknownAction, Dispatch } from '@rolimoa/common/redux';
 import ReconnectingWebSocket from 'reconnecting-websocket';
 
 export class LyricalSocket {
@@ -57,7 +57,7 @@ export class LyricalSocket {
 
   // サーバを経由して、別のクライアントにactionをdispatchする
   public static dispatch(
-    actions: AnyAction[] | AnyAction,
+    actions: UnknownAction[] | UnknownAction,
     // biome-ignore lint/suspicious/noExplicitAny: <explanation>
     reduxDispatch: Dispatch<any> | undefined = undefined,
   ) {
@@ -75,7 +75,7 @@ export class LyricalSocket {
     LyricalSocket.sendOperation('dispatch', { actions });
   }
 
-  public static dispatchAll(actions: AnyAction[]) {
+  public static dispatchAll(actions: UnknownAction[]) {
     LyricalSocket.sendOperation('dispatch_all', { actions });
   }
 }

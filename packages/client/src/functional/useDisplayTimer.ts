@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
-import type { RootState } from '@/slices';
-import type { PhaseState } from '@/slices/phase';
+import type { RootState } from '@rolimoa/common/redux';
+import type { PhaseState } from '@rolimoa/common/redux';
 import { formatTime } from '@/util/formatTime';
 import type { TimeProgressConfigType } from '@/config/types';
 import * as Phase from '@/util/PhaseStateUtil';

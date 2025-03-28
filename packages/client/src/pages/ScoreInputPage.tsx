@@ -20,12 +20,12 @@ import {
 } from '@mui/material';
 import CheckIcon from '@mui/icons-material/Check';
 import FlagIcon from '@mui/icons-material/Flag';
-import type { RootState } from '@/slices';
+import type { RootState } from '@rolimoa/common/redux';
 import {
   type FieldSideType,
   scoreStateSlice,
   type FieldScoreStateType,
-} from '@/slices/score';
+} from '@rolimoa/common/redux';
 import { Dashboard } from '@/components/Dashboard';
 import { ScoreInputVgoalButton } from '@/components/ScoreInputVgoalButton';
 import { LyricalSocket } from '@/lyricalSocket';

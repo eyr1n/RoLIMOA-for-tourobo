@@ -1,7 +1,7 @@
 import type { FC, Ref } from 'react';
 import { useSelector } from 'react-redux';
-import type { RootState } from '@/slices';
-import type { FieldSideType } from '@/slices/score';
+import type { RootState } from '@rolimoa/common/redux';
+import type { FieldSideType } from '@rolimoa/common/redux';
 import { Box, Divider, Slide } from '@mui/material';
 import { useDisplayScore } from '@/functional/useDisplayScore';
 import { useDisplayTimer } from '@/functional/useDisplayTimer';

@@ -7,8 +7,8 @@ import {
   type TypographyVariant,
 } from '@mui/material';
 import { useSelector } from 'react-redux';
-import type { RootState } from '@/slices';
-import type { FieldSideType } from '@/slices/score';
+import type { RootState } from '@rolimoa/common/redux';
+import type { FieldSideType } from '@rolimoa/common/redux';
 import { useDisplayScore } from '@/functional/useDisplayScore';
 import { formatTime } from '@/util/formatTime';
 import { config } from '@/config/load';

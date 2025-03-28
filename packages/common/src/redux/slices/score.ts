@@ -1,5 +1,5 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
-import { config } from '@/config/load';
+import config from '../../config/index.js';
 
 export type ScoreState = {
   fields: Record<FieldSideType, FieldScoreStateType>;
@@ -15,7 +15,7 @@ export type FieldScoreStateType = {
 };
 export type ObjectsStateType = { [objectId: string]: number };
 
-export const initialState: ScoreState = {
+export const scoreInitialState: ScoreState = {
   fields: {
     blue: {
       tasks: Object.fromEntries(
@@ -41,7 +41,8 @@ export const initialState: ScoreState = {
     },
   },
   global: Object.fromEntries(
-    config.rule.global_objects.map((taskObj) => [
+    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+    config.rule.global_objects.map((taskObj: any) => [
       taskObj.id,
       taskObj.initialValue ?? 0,
     ]),
@@ -61,7 +62,7 @@ type TaskUpdateActionPayload = {
 
 export const scoreStateSlice = createSlice({
   name: 'task',
-  initialState,
+  initialState: scoreInitialState,
   reducers: {
     setState: (_, action: PayloadAction<ScoreState>) => action.payload,
     setGloablUpdate: (

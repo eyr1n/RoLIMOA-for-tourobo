@@ -1,7 +1,7 @@
 import { type FC, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import type { RootState } from '@/slices';
-import { scoreStateSlice } from '@/slices/score';
+import type { RootState } from '@rolimoa/common/redux';
+import { scoreStateSlice } from '@rolimoa/common/redux';
 import { ErrorObject } from './ErrorObject';
 import { LyricalSocket } from '@/lyricalSocket';
 import type {
@@ -9,7 +9,7 @@ import type {
   TaskObjectConfigType,
 } from '@/config/types';
 import { BaseControl } from './BaseControl';
-import { operationLogsStateSlice } from '@/slices/operationLogs';
+import { operationLogsStateSlice } from '@rolimoa/common/redux';
 
 type GlobalObjectContainerProps = {
   taskConfig: TaskObjectConfigType;

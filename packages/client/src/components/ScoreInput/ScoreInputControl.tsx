@@ -3,7 +3,7 @@ import type {
   CustomControlPanelType,
   TaskObjectConfigType,
 } from '@/config/types';
-import type { FieldSideType } from '@/slices/score';
+import type { FieldSideType } from '@rolimoa/common/redux';
 import { GlobalObjectContainer } from './GlobalObjectContainer';
 import { TaskObjectContainer } from './TaskObjectContainer';
 import { config } from '@/config/load';
