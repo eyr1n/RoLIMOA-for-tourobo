@@ -1,4 +1,4 @@
-import type { FC } from 'react';
+import type { PropsWithChildren } from 'react';
 import { Link } from 'react-router';
 import {
   AppBar as MuiAppBar,
@@ -88,11 +88,13 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 interface DashboardProps {
-  children: React.ReactNode;
   title: string;
 }
 
-export const Dashboard: FC<DashboardProps> = ({ children, title }) => {
+export function Dashboard({
+  children,
+  title,
+}: PropsWithChildren<DashboardProps>) {
   const [_open, setOpen] = useAtom(isDrawerOpen);
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -234,4 +236,4 @@ export const Dashboard: FC<DashboardProps> = ({ children, title }) => {
       </Box>
     </Box>
   );
-};
+}

@@ -1,4 +1,4 @@
-import { type FC, useRef } from 'react';
+import { type PropsWithChildren, useRef } from 'react';
 import { Transition } from 'react-transition-group';
 
 type SlideTransitionProps = {
@@ -6,15 +6,14 @@ type SlideTransitionProps = {
   direction: 'left' | 'right';
   appear?: boolean;
   duration?: number;
-  children: React.ReactNode;
 };
 
-export const SlideTransition: FC<SlideTransitionProps> = ({
+export function SlideTransition({
   in: inProp,
   direction,
   duration = 800,
   children,
-}) => {
+}: PropsWithChildren<SlideTransitionProps>) {
   const nodeRef = useRef(null);
 
   const defaultStyle = {
@@ -59,4 +58,4 @@ export const SlideTransition: FC<SlideTransitionProps> = ({
       )}
     </Transition>
   );
-};
+}
