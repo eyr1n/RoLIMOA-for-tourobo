@@ -1,12 +1,5 @@
-import type { ReactNode } from 'react';
-import {
-  ThemeProvider,
-  StyledEngineProvider,
-  createTheme,
-  alpha,
-} from '@mui/material/styles';
+import { createTheme, alpha } from '@mui/material/styles';
 import { blue, grey, pink } from '@mui/material/colors';
-import { CssBaseline } from '@mui/material';
 
 declare module '@mui/material/Button' {
   interface ButtonPropsColorOverrides {
