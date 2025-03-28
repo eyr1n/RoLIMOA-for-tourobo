@@ -1,4 +1,4 @@
-import { type FC, useEffect } from 'react';
+import {  useEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router';
 import { useDispatch } from 'react-redux';
 import { useRecoilState } from 'recoil';
@@ -26,7 +26,7 @@ import { AppMuiThemeProvider } from './AppMuiThemeProvider';
 import { getSetting } from './util/clientStoredSetting';
 import 'dseg/css/dseg.css';
 
-const App: FC = () => {
+export function App() {
   const [isConnect, setIsConnect] = useRecoilState(connectionState);
   const location = useLocation();
   const dispatch = useDispatch();
@@ -141,5 +141,3 @@ const App: FC = () => {
     </>
   );
 };
-
-export default App;
