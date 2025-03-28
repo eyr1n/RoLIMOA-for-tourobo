@@ -15,7 +15,7 @@ import { Dashboard } from '@/components/Dashboard';
 import { useSelector } from 'react-redux';
 import type { RootState } from '@rolimoa/common/redux';
 import type { ResultRecordsType } from '@rolimoa/common/redux';
-import styled from '@emotion/styled';
+import { styled } from '@mui/material/styles';
 
 const GameResultsList: React.FC = () => {
   const results = useSelector<RootState, ResultRecordsType>(
