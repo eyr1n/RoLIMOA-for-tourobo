@@ -1,14 +1,12 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import type { StreamingInterface } from '../../schema/index.js';
 
-const initialState: StreamingInterface = {
-  showMainHud: true,
-  showScoreBoard: true,
-};
-
 export const streamingInterfaceSlice = createSlice({
   name: 'streamingInterface',
-  initialState,
+  initialState: {
+    showMainHud: true,
+    showScoreBoard: true,
+  } as StreamingInterface,
   reducers: {
     setState: (_, action: PayloadAction<StreamingInterface>) => action.payload,
     setShowMainHud: (cur, action: PayloadAction<boolean>) => {

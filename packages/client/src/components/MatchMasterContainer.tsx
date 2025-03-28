@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import type { RootState } from '@rolimoa/common/redux';
 import { matchStateSlice } from '@rolimoa/common/redux';
 import { phaseStateSlice } from '@rolimoa/common/redux';
-import { scoreInitialState, scoreStateSlice } from '@rolimoa/common/redux';
+import { scoreStateSlice } from '@rolimoa/common/redux';
 import { unixtimeOffset } from '@/atoms/unixtimeOffset';
 import { LyricalSocket } from '@/lyricalSocket';
 import * as Phase from '@/util/PhaseStateUtil';
@@ -53,7 +53,7 @@ export const MatchMasterContainer: FC = () => {
   const onSubmitButton = useCallback(() => {
     LyricalSocket.dispatchAll([
       // スコアの初期化
-      scoreStateSlice.actions.setState(scoreInitialState),
+      scoreStateSlice.actions.setState(scoreStateSlice.getInitialState()),
       // チーム情報の更新
       matchStateSlice.actions.setState({
         name: matchName,

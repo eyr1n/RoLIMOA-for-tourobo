@@ -11,18 +11,16 @@ export function calculateElapsedSecond(
   return Math.floor((pausedTime ?? now - startTime) / 1000);
 }
 
-export const initialState: PhaseState = {
-  current: {
-    id: 'default',
-    startTime: Date.now(),
-    pausedTime: undefined,
-  },
-  elapsedSecond: 0,
-};
-
 export const phaseStateSlice = createSlice({
   name: 'phase',
-  initialState,
+  initialState: {
+    current: {
+      id: 'default',
+      startTime: Date.now(),
+      pausedTime: undefined,
+    },
+    elapsedSecond: 0,
+  } as PhaseState,
   reducers: {
     setState: (state, action: PayloadAction<CurrentPhaseState>) => {
       state.elapsedSecond = calculateElapsedSecond(

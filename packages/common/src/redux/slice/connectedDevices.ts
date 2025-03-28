@@ -4,11 +4,9 @@ import type { ConnectedDevice } from '../../schema/index.js';
 type PartialExcept<T, K extends keyof T> = Pick<T, K> & Partial<T>; // T型からK以外のプロパティをPartialにする
 type PartialConnectedDevice = PartialExcept<ConnectedDevice, 'sockId'>;
 
-const initialState: ConnectedDevice[] = [];
-
 export const connectedDevicesStateSlice = createSlice({
   name: 'connectedDevices',
-  initialState,
+  initialState: [] as ConnectedDevice[],
   reducers: {
     setState: (_, action: PayloadAction<ConnectedDevice[]>) => action.payload,
     // デバイスの追加もしくは更新

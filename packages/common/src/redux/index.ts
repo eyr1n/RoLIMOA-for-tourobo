@@ -8,7 +8,7 @@ import {
   resultRecordsStateSlice,
   scoreStateSlice,
   streamingInterfaceSlice,
-} from './slices/index.js';
+} from './slice/index.js';
 
 export const rootReducer = combineReducers({
   score: scoreStateSlice.reducer,
@@ -32,4 +32,4 @@ export function configureRoLIMOAStore(preloadedState?: Partial<RootState>) {
 
 export type { UnknownAction, Dispatch } from '@reduxjs/toolkit';
 
-export * from './slices/index.js';
+export * from './slice/index.js';

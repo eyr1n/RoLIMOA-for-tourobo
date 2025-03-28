@@ -2,40 +2,6 @@ import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import config from '../../config/index.js';
 import type { FieldSideType, ScoreState } from '../../schema/index.js';
 
-export const scoreInitialState: ScoreState = {
-  fields: {
-    blue: {
-      tasks: Object.fromEntries(
-        config.rule.task_objects.map((taskObj) => [
-          taskObj.id,
-          taskObj.initialValue ?? 0,
-        ]),
-      ),
-      enable: true,
-      winner: false,
-      vgoal: undefined,
-    },
-    red: {
-      tasks: Object.fromEntries(
-        config.rule.task_objects.map((taskObj) => [
-          taskObj.id,
-          taskObj.initialValue ?? 0,
-        ]),
-      ),
-      enable: true,
-      winner: false,
-      vgoal: undefined,
-    },
-  },
-  global: Object.fromEntries(
-    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-    config.rule.global_objects.map((taskObj: any) => [
-      taskObj.id,
-      taskObj.initialValue ?? 0,
-    ]),
-  ),
-};
-
 type GloablUpdateActionPayload = {
   taskObjectId: string;
   afterValue: number;
@@ -49,7 +15,39 @@ type TaskUpdateActionPayload = {
 
 export const scoreStateSlice = createSlice({
   name: 'task',
-  initialState: scoreInitialState,
+  initialState: {
+    fields: {
+      blue: {
+        tasks: Object.fromEntries(
+          config.rule.task_objects.map((taskObj) => [
+            taskObj.id,
+            taskObj.initialValue ?? 0,
+          ]),
+        ),
+        enable: true,
+        winner: false,
+        vgoal: undefined,
+      },
+      red: {
+        tasks: Object.fromEntries(
+          config.rule.task_objects.map((taskObj) => [
+            taskObj.id,
+            taskObj.initialValue ?? 0,
+          ]),
+        ),
+        enable: true,
+        winner: false,
+        vgoal: undefined,
+      },
+    },
+    global: Object.fromEntries(
+      // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+      config.rule.global_objects.map((taskObj: any) => [
+        taskObj.id,
+        taskObj.initialValue ?? 0,
+      ]),
+    ),
+  } as ScoreState,
   reducers: {
     setState: (_, action: PayloadAction<ScoreState>) => action.payload,
     setGloablUpdate: (
