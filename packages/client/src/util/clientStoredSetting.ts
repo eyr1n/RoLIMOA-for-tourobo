@@ -1,13 +1,6 @@
-import { z } from 'zod';
+import { settingSchema, type SettingType } from '@rolimoa/common/schema';
 
 const LOCAL_STORAGE_KEY = 'RoLIMOA-setting';
-
-const settingSchema = z.object({
-  deviceName: z.string(),
-  timeOffset: z.number(),
-});
-
-type SettingType = z.infer<typeof settingSchema>;
 
 const defaultValues: Required<SettingType> = {
   deviceName: 'ななし＠役割なし',
