@@ -21,7 +21,7 @@ type DisplayScoreType = {
 export function useDisplayScore(fieldSide: FieldSideType): DisplayScoreType {
   const currentMatchState = useCurrentMatchState(fieldSide);
   const scoreState = useSelector<RootState, FieldScoreStateType>(
-    (state) => state.score.fields[fieldSide],
+    (state) => state.task.fields[fieldSide],
   );
 
   return useMemo(() => {

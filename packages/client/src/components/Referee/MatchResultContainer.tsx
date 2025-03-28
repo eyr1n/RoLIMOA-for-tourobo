@@ -96,7 +96,7 @@ const ScoreDetailTable = (props: {
 const ResultConfirm = () => {
   const dispath = useDispatch();
   const match = useSelector<RootState, MatchState>((state) => state.match);
-  const score = useSelector<RootState, ScoreState>((state) => state.score);
+  const score = useSelector<RootState, ScoreState>((state) => state.task);
   const currentPhase = useSelector<RootState, CurrentPhaseState>(
     (state) => state.phase.current,
   );

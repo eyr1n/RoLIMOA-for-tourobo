@@ -19,7 +19,7 @@ export const ScoreInputVgoalButton: FC<ScoreInputVgoalButtonProps> = ({
 }) => {
   const dispatch = useDispatch();
   const scoreState = useSelector<RootState, FieldScoreStateType>(
-    (state) => state.score.fields[fieldSide],
+    (state) => state.task.fields[fieldSide],
   );
   const elapsedSec = useSelector<RootState, number>(
     (state) => state.phase.elapsedSecond,

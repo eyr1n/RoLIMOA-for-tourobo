@@ -96,7 +96,7 @@ type FlagInputProps = {
 function FlagInput({ fieldSide, color }: FlagInputProps) {
   const dispatch = useDispatch();
   const scoreState = useSelector<RootState, FieldScoreStateType>(
-    (state) => state.score.fields[fieldSide],
+    (state) => state.task.fields[fieldSide],
   );
 
   const onEnableButton = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -210,7 +210,7 @@ type ScoreInputPageProps = {
 
 export function ScoreInputPage({ fieldSide }: ScoreInputPageProps) {
   const isScoreEnable = useSelector<RootState, boolean>(
-    (state) => state.score.fields[fieldSide].enable,
+    (state) => state.task.fields[fieldSide].enable,
   );
   const dispatch = useDispatch();
 

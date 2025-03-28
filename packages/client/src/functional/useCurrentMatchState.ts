@@ -39,7 +39,7 @@ function matchElapsedSec(
 export function useCurrentMatchState(
   fieldSide: FieldSideType,
 ): CurrentMatchStateType {
-  const scoreState = useSelector<RootState, ScoreState>((state) => state.score);
+  const scoreState = useSelector<RootState, ScoreState>((state) => state.task);
   const phaseState = useSelector<RootState, PhaseState>((state) => state.phase);
 
   const opponentField = fieldSide === 'red' ? 'blue' : 'red';

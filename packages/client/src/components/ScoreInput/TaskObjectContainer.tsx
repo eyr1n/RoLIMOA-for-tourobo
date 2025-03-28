@@ -26,7 +26,7 @@ export const TaskObjectContainer: FC<TaskObjectContainerProps> = ({
   const { id } = taskConfig;
 
   const currentValue = useSelector<RootState, number | undefined>(
-    (state) => state.score.fields[fieldSide].tasks[id],
+    (state) => state.task.fields[fieldSide].tasks[id],
   );
   const dispatch = useDispatch();
 

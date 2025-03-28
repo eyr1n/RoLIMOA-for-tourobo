@@ -49,8 +49,8 @@ function storedObjectValidator(state: RootState): boolean {
     return a.length === b.length && a.every((v, i) => v === b[i]);
   }
 
-  const stateFieldTaskKeys = Object.keys(state.score.fields.blue.tasks ?? {});
-  const globalTaskKeys = Object.keys(state.score.global.tasks ?? {});
+  const stateFieldTaskKeys = Object.keys(state.task.fields.blue.tasks ?? {});
+  const globalTaskKeys = Object.keys(state.task.global.tasks ?? {});
 
   const fieldTaskIds = config.rule.task_objects.map((task) => task.id);
   const globalTaskIds = config.rule.global_objects.map((task) => task.id);

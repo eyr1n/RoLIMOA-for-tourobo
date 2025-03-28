@@ -20,7 +20,7 @@ export const GlobalObjectContainer: FC<GlobalObjectContainerProps> = ({
   const { id } = taskConfig;
 
   const currentValue = useSelector<RootState, number | undefined>(
-    (state) => state.score.global[id],
+    (state) => state.task.global[id],
   );
   const dispatch = useDispatch();
 

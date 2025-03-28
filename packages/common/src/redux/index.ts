@@ -1,4 +1,4 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { combineSlices, configureStore } from '@reduxjs/toolkit';
 
 import {
   connectedDevicesStateSlice,
@@ -10,15 +10,15 @@ import {
   streamingInterfaceSlice,
 } from './slice/index.js';
 
-export const rootReducer = combineReducers({
-  score: scoreStateSlice.reducer,
-  phase: phaseStateSlice.reducer,
-  match: matchStateSlice.reducer,
-  operationLogs: operationLogsStateSlice.reducer,
-  resultRecords: resultRecordsStateSlice.reducer,
-  connectedDevices: connectedDevicesStateSlice.reducer,
-  streamingInterface: streamingInterfaceSlice.reducer,
-});
+export const rootReducer = combineSlices(
+  connectedDevicesStateSlice,
+  matchStateSlice,
+  operationLogsStateSlice,
+  phaseStateSlice,
+  resultRecordsStateSlice,
+  scoreStateSlice,
+  streamingInterfaceSlice,
+);
 
 export type RootState = ReturnType<typeof rootReducer>;
 
