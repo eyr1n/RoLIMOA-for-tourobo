@@ -1,4 +1,4 @@
-import type { ConfigType } from './types.js';
+import type { ConfigType } from '../schema/index.js';
 
 export default {
   contest_info: {

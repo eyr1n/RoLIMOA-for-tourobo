@@ -7,7 +7,7 @@ import { LyricalSocket } from '@/lyricalSocket';
 import type {
   CustomControlPanelType,
   TaskObjectConfigType,
-} from '@/config/types';
+} from '@rolimoa/common/schema';
 import { BaseControl } from './BaseControl';
 import { operationLogsStateSlice } from '@rolimoa/common/redux';
 

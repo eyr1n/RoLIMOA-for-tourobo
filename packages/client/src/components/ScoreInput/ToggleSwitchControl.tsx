@@ -10,7 +10,7 @@ import {
 import type {
   TaskObjectConfigType,
   TaskObjectToggleSwitchUiType,
-} from '@/config/types';
+} from '@rolimoa/common/schema';
 
 interface ToggleSwitchControlProps {
   color: 'primary' | 'secondary' | 'default';

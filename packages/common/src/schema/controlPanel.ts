@@ -74,3 +74,14 @@ export const customControlPanelSchema = z.union([
   taskObjectToggleSwitchSchema,
   taskObjectMultiButtonSchema,
 ]);
+
+export type TaskObjectToggleSwitchUiType = z.infer<
+  typeof taskObjectToggleSwitchSchema
+>;
+export type TaskObjectToggleButtonUiType = z.infer<
+  typeof taskObjectToggleButtonSchema
+>;
+export type taskObjectMultiButtonUiType = z.infer<
+  typeof taskObjectMultiButtonSchema
+>;
+export type CustomControlPanelType = z.infer<typeof customControlPanelSchema>;

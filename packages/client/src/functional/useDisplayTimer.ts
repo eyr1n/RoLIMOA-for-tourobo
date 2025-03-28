@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import type { RootState } from '@rolimoa/common/redux';
 import type { PhaseState } from '@rolimoa/common/redux';
 import { formatTime } from '@/util/formatTime';
-import type { TimeProgressConfigType } from '@/config/types';
+import type { TimeProgressConfigType } from '@rolimoa/common/schema';
 import * as Phase from '@/util/PhaseStateUtil';
 
 // 表示する時間の文字列を取得する

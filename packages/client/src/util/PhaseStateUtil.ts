@@ -1,5 +1,5 @@
 import { config } from '@/config/load';
-import type { TimeProgressConfigType } from '@/config/types';
+import type { TimeProgressConfigType } from '@rolimoa/common/schema';
 
 const defaultConfig = {
   id: 'default',

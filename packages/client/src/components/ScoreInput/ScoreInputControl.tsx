@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import type {
   CustomControlPanelType,
   TaskObjectConfigType,
-} from '@/config/types';
+} from '@rolimoa/common/schema';
 import type { FieldSideType } from '@rolimoa/common/redux';
 import { GlobalObjectContainer } from './GlobalObjectContainer';
 import { TaskObjectContainer } from './TaskObjectContainer';
